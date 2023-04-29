@@ -59,7 +59,7 @@
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulos.Location = new System.Drawing.Point(224, 87);
             this.dgvArticulos.Name = "dgvArticulos";
-            this.dgvArticulos.Size = new System.Drawing.Size(530, 297);
+            this.dgvArticulos.Size = new System.Drawing.Size(736, 297);
             this.dgvArticulos.TabIndex = 0;
             // 
             // tbxBuscar
@@ -182,7 +182,7 @@
             // 
             this.lblImagenes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblImagenes.AutoSize = true;
-            this.lblImagenes.Location = new System.Drawing.Point(862, 90);
+            this.lblImagenes.Location = new System.Drawing.Point(1068, 90);
             this.lblImagenes.Name = "lblImagenes";
             this.lblImagenes.Size = new System.Drawing.Size(53, 13);
             this.lblImagenes.TabIndex = 14;
@@ -191,7 +191,7 @@
             // ptbArticulos
             // 
             this.ptbArticulos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ptbArticulos.Location = new System.Drawing.Point(771, 127);
+            this.ptbArticulos.Location = new System.Drawing.Point(977, 127);
             this.ptbArticulos.Name = "ptbArticulos";
             this.ptbArticulos.Size = new System.Drawing.Size(225, 196);
             this.ptbArticulos.TabIndex = 15;
@@ -200,7 +200,7 @@
             // btnSiguiente
             // 
             this.btnSiguiente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSiguiente.Location = new System.Drawing.Point(923, 355);
+            this.btnSiguiente.Location = new System.Drawing.Point(1129, 355);
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.Size = new System.Drawing.Size(73, 29);
             this.btnSiguiente.TabIndex = 16;
@@ -210,7 +210,7 @@
             // btnAnterior
             // 
             this.btnAnterior.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAnterior.Location = new System.Drawing.Point(771, 356);
+            this.btnAnterior.Location = new System.Drawing.Point(977, 356);
             this.btnAnterior.Name = "btnAnterior";
             this.btnAnterior.Size = new System.Drawing.Size(71, 28);
             this.btnAnterior.TabIndex = 17;
@@ -221,7 +221,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 441);
+            this.ClientSize = new System.Drawing.Size(1214, 441);
             this.Controls.Add(this.btnAnterior);
             this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.ptbArticulos);
@@ -243,6 +243,7 @@
             this.Name = "frmInicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TP Articulos";
+            this.Load += new System.EventHandler(this.frmInicio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbArticulos)).EndInit();
             this.ResumeLayout(false);

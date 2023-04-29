@@ -7,15 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dominio;
+using Negocio;
 
 namespace TPWinforms
 {
     public partial class frmInicio : Form
     {
+        
         public frmInicio()
         {
             InitializeComponent();
         }
+
+        private List<Articulos> ListaArticulos;
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -43,6 +48,13 @@ namespace TPWinforms
         {
             frmMarcas iniciar = new frmMarcas();
             iniciar.ShowDialog();
+        }
+
+        private void frmInicio_Load(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            ListaArticulos = negocio.Listar();
+            dgvArticulos.DataSource = ListaArticulos;
         }
     }
 }
