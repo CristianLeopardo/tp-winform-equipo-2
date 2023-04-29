@@ -57,6 +57,7 @@ namespace TPWinforms
             ArticuloNegocio negocio = new ArticuloNegocio();
             ListaArticulos = negocio.Listar();
             dgvArticulos.DataSource = ListaArticulos;
+            ocultarColumnas();
         }
 
         private void btnCategorias_Click(object sender, EventArgs e)

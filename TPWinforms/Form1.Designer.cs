@@ -62,10 +62,11 @@
             this.dgvArticulos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvArticulos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulos.Location = new System.Drawing.Point(224, 87);
             this.dgvArticulos.Name = "dgvArticulos";
-            this.dgvArticulos.Size = new System.Drawing.Size(736, 297);
+            this.dgvArticulos.Size = new System.Drawing.Size(530, 297);
             this.dgvArticulos.TabIndex = 0;
             this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
@@ -141,7 +142,7 @@
             // btnModificar
             // 
             this.btnModificar.BackColor = System.Drawing.Color.Silver;
-            this.btnModificar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnModificar.ForeColor = System.Drawing.Color.Black;
             this.btnModificar.Location = new System.Drawing.Point(12, 234);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(133, 29);
@@ -153,7 +154,7 @@
             // btnEliminar
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.Silver;
-            this.btnEliminar.ForeColor = System.Drawing.Color.Brown;
+            this.btnEliminar.ForeColor = System.Drawing.Color.Black;
             this.btnEliminar.Location = new System.Drawing.Point(12, 269);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(133, 29);
@@ -164,7 +165,7 @@
             // btnAgregar
             // 
             this.btnAgregar.BackColor = System.Drawing.Color.Silver;
-            this.btnAgregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnAgregar.ForeColor = System.Drawing.Color.Black;
             this.btnAgregar.Location = new System.Drawing.Point(12, 199);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(133, 29);
@@ -176,7 +177,7 @@
             // btnDetalle
             // 
             this.btnDetalle.BackColor = System.Drawing.Color.Silver;
-            this.btnDetalle.ForeColor = System.Drawing.Color.Green;
+            this.btnDetalle.ForeColor = System.Drawing.Color.Black;
             this.btnDetalle.Location = new System.Drawing.Point(12, 164);
             this.btnDetalle.Name = "btnDetalle";
             this.btnDetalle.Size = new System.Drawing.Size(133, 29);
@@ -209,7 +210,7 @@
             // ptbArticulos
             // 
             this.ptbArticulos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ptbArticulos.Location = new System.Drawing.Point(977, 127);
+            this.ptbArticulos.Location = new System.Drawing.Point(771, 127);
             this.ptbArticulos.Name = "ptbArticulos";
             this.ptbArticulos.Size = new System.Drawing.Size(225, 196);
             this.ptbArticulos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -220,8 +221,8 @@
             // 
             this.btnSiguiente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSiguiente.BackColor = System.Drawing.Color.Silver;
-            this.btnSiguiente.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.btnSiguiente.Location = new System.Drawing.Point(1131, 338);
+            this.btnSiguiente.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnSiguiente.Location = new System.Drawing.Point(925, 338);
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.Size = new System.Drawing.Size(73, 29);
             this.btnSiguiente.TabIndex = 16;
@@ -232,8 +233,8 @@
             // 
             this.btnAnterior.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAnterior.BackColor = System.Drawing.Color.Silver;
-            this.btnAnterior.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.btnAnterior.Location = new System.Drawing.Point(977, 339);
+            this.btnAnterior.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnAnterior.Location = new System.Drawing.Point(771, 339);
             this.btnAnterior.Name = "btnAnterior";
             this.btnAnterior.Size = new System.Drawing.Size(71, 28);
             this.btnAnterior.TabIndex = 17;
@@ -246,7 +247,7 @@
             this.btnSalir.BackColor = System.Drawing.Color.Silver;
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.Color.Red;
-            this.btnSalir.Location = new System.Drawing.Point(1129, 400);
+            this.btnSalir.Location = new System.Drawing.Point(923, 400);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 29);
             this.btnSalir.TabIndex = 18;
@@ -256,8 +257,9 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(1116, 72);
+            this.pictureBox1.Location = new System.Drawing.Point(910, 72);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(50, 49);
             this.pictureBox1.TabIndex = 19;
@@ -279,9 +281,10 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Haettenschweiler", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(1044, 83);
+            this.label2.Location = new System.Drawing.Point(838, 83);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 21);
             this.label2.TabIndex = 20;
@@ -292,7 +295,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSalmon;
-            this.ClientSize = new System.Drawing.Size(1214, 441);
+            this.ClientSize = new System.Drawing.Size(1008, 441);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblImagenes);
             this.Controls.Add(this.label1);

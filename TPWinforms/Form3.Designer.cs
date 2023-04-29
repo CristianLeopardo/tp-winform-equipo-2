@@ -136,7 +136,7 @@
             // btnAceptar
             // 
             this.btnAceptar.BackColor = System.Drawing.Color.Silver;
-            this.btnAceptar.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.btnAceptar.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btnAceptar.Location = new System.Drawing.Point(180, 175);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(117, 33);
@@ -147,7 +147,7 @@
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.Silver;
-            this.btnCancelar.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.btnCancelar.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btnCancelar.Location = new System.Drawing.Point(15, 175);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(117, 33);
