@@ -38,5 +38,11 @@ namespace TPWinforms
             }
             
         }
+
+        private void btnMarcas_Click(object sender, EventArgs e)
+        {
+            frmMarcas iniciar = new frmMarcas();
+            iniciar.ShowDialog();
+        }
     }
 }

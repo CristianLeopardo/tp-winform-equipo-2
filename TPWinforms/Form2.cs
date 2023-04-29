@@ -36,6 +36,11 @@ namespace TPWinforms
                 lblUno.Text = Texto;
             }
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
     
 }

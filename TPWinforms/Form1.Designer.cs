@@ -167,6 +167,7 @@
             this.btnMarcas.TabIndex = 12;
             this.btnMarcas.Text = "Administrar Marcas";
             this.btnMarcas.UseVisualStyleBackColor = true;
+            this.btnMarcas.Click += new System.EventHandler(this.btnMarcas_Click);
             // 
             // btnCategorias
             // 
