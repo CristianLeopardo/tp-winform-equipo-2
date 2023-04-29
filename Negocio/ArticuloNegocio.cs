@@ -16,7 +16,7 @@ namespace Negocio
             Conexion datos = new Conexion();
             try
             {
-                datos.SetearConsulta("SELECT a.Codigo, a.Nombre, a.Descripcion, a.Precio, m.Descripcion as Marca, c.Descripcion as Categoria from ARTICULOS a INNER JOIN MARCAS m on a.IdMarca=m.Id INNER JOIN CATEGORIAS c on a.IdCategoria=c.Id");
+                datos.SetearConsulta("SELECT a.Codigo, a.Nombre, a.Descripcion, a.Precio, m.Descripcion as Marca, c.Descripcion as Categoria, i.ImagenUrl from ARTICULOS a INNER JOIN MARCAS m on a.IdMarca=m.Id INNER JOIN CATEGORIAS c on a.IdCategoria=c.Id inner join IMAGENES I on I.IdArticulo = a.Id");
                 datos.Ejecutarconsulta();
 
                 while (datos.Lector.Read())
@@ -32,6 +32,9 @@ namespace Negocio
 
                     obj.categoria = new Categoria();
                     obj.categoria.Descripcion = (string)datos.Lector["Categoria"];
+
+                    obj.imagen = new Imagen();
+                    obj.imagen.URLImagen = (string)datos.Lector["ImagenUrl"];
 
                     lista.Add(obj);
                 }

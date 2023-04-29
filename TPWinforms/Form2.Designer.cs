@@ -40,12 +40,12 @@
             this.txbCodigo = new System.Windows.Forms.TextBox();
             this.txbNombre = new System.Windows.Forms.TextBox();
             this.tbxDesc = new System.Windows.Forms.TextBox();
-            this.tbxMarca = new System.Windows.Forms.TextBox();
-            this.txtCategoria = new System.Windows.Forms.TextBox();
             this.txtURL = new System.Windows.Forms.TextBox();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.cmbMarca = new System.Windows.Forms.ComboBox();
+            this.cmbCategoria = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lblUno
@@ -158,24 +158,6 @@
             this.tbxDesc.Size = new System.Drawing.Size(233, 20);
             this.tbxDesc.TabIndex = 11;
             // 
-            // tbxMarca
-            // 
-            this.tbxMarca.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbxMarca.Location = new System.Drawing.Point(132, 145);
-            this.tbxMarca.Name = "tbxMarca";
-            this.tbxMarca.Size = new System.Drawing.Size(233, 20);
-            this.tbxMarca.TabIndex = 12;
-            // 
-            // txtCategoria
-            // 
-            this.txtCategoria.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCategoria.Location = new System.Drawing.Point(132, 174);
-            this.txtCategoria.Name = "txtCategoria";
-            this.txtCategoria.Size = new System.Drawing.Size(233, 20);
-            this.txtCategoria.TabIndex = 13;
-            // 
             // txtURL
             // 
             this.txtURL.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -213,17 +195,33 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // cmbMarca
+            // 
+            this.cmbMarca.FormattingEnabled = true;
+            this.cmbMarca.Location = new System.Drawing.Point(132, 147);
+            this.cmbMarca.Name = "cmbMarca";
+            this.cmbMarca.Size = new System.Drawing.Size(233, 21);
+            this.cmbMarca.TabIndex = 18;
+            // 
+            // cmbCategoria
+            // 
+            this.cmbCategoria.FormattingEnabled = true;
+            this.cmbCategoria.Location = new System.Drawing.Point(132, 178);
+            this.cmbCategoria.Name = "cmbCategoria";
+            this.cmbCategoria.Size = new System.Drawing.Size(233, 21);
+            this.cmbCategoria.TabIndex = 19;
+            // 
             // frmArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(404, 361);
+            this.Controls.Add(this.cmbCategoria);
+            this.Controls.Add(this.cmbMarca);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.txtURL);
-            this.Controls.Add(this.txtCategoria);
-            this.Controls.Add(this.tbxMarca);
             this.Controls.Add(this.tbxDesc);
             this.Controls.Add(this.txbNombre);
             this.Controls.Add(this.txbCodigo);
@@ -260,11 +258,11 @@
         private System.Windows.Forms.TextBox txbCodigo;
         private System.Windows.Forms.TextBox txbNombre;
         private System.Windows.Forms.TextBox tbxDesc;
-        private System.Windows.Forms.TextBox tbxMarca;
-        private System.Windows.Forms.TextBox txtCategoria;
         private System.Windows.Forms.TextBox txtURL;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.ComboBox cmbMarca;
+        private System.Windows.Forms.ComboBox cmbCategoria;
     }
 }

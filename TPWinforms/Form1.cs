@@ -32,13 +32,14 @@ namespace TPWinforms
         private void btnModificar_Click(object sender, EventArgs e)
         {
             frmArticulos iniciar = new frmArticulos();
-            if  (tbxBuscar.Text =="")
+            Articulos Seleccionado = (Articulos)dgvArticulos.CurrentRow.DataBoundItem;
+            if  (Seleccionado.Nombre == "")
             {
                 MessageBox.Show("Seleccione un articulo");
             }
             else
             {
-                iniciar.Texto = tbxBuscar.Text;
+                iniciar.Texto = Seleccionado.Nombre;
                 iniciar.ShowDialog();
             }
             
@@ -55,6 +56,29 @@ namespace TPWinforms
             ArticuloNegocio negocio = new ArticuloNegocio();
             ListaArticulos = negocio.Listar();
             dgvArticulos.DataSource = ListaArticulos;
+        }
+
+        private void btnCategorias_Click(object sender, EventArgs e)
+        {
+            frmCategorias iniciar = new frmCategorias();
+            iniciar.ShowDialog();
+        }
+
+        private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
+        {
+            Articulos Seleccionado = (Articulos)dgvArticulos.CurrentRow.DataBoundItem;
+            cargarImagen(Seleccionado.imagen.URLImagen);
+        }
+        private void cargarImagen(string imagen)
+        {
+            try
+            {
+                ptbArticulos.Load(imagen);
+            }
+            catch
+            {
+                ptbArticulos.Load("https://librerialadorita.com/uploads/product_default.jpg");
+            }
         }
     }
 }

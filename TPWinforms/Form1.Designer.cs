@@ -61,6 +61,7 @@
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.Size = new System.Drawing.Size(736, 297);
             this.dgvArticulos.TabIndex = 0;
+            this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
             // tbxBuscar
             // 
@@ -177,6 +178,7 @@
             this.btnCategorias.TabIndex = 13;
             this.btnCategorias.Text = "Administrar Categorias";
             this.btnCategorias.UseVisualStyleBackColor = true;
+            this.btnCategorias.Click += new System.EventHandler(this.btnCategorias_Click);
             // 
             // lblImagenes
             // 
@@ -194,6 +196,7 @@
             this.ptbArticulos.Location = new System.Drawing.Point(977, 127);
             this.ptbArticulos.Name = "ptbArticulos";
             this.ptbArticulos.Size = new System.Drawing.Size(225, 196);
+            this.ptbArticulos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbArticulos.TabIndex = 15;
             this.ptbArticulos.TabStop = false;
             // 
