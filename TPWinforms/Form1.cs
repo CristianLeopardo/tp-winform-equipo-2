@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -79,6 +80,69 @@ namespace TPWinforms
             {
                 ptbArticulos.Load("https://librerialadorita.com/uploads/product_default.jpg");
             }
+        }
+
+
+        private void ocultarColumnas()
+        {
+            dgvArticulos.Columns["imagen"].Visible = false;
+            dgvArticulos.Columns["Codigo"].Visible = false;
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            List<Articulos> filtrolista;
+            string filtro = tbxBuscar.Text;
+
+            if(filtro.Length != 0)
+            {
+                filtrolista = ListaArticulos.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.marca.Descripcion.ToUpper().Contains(filtro.ToUpper()) || x.Precio.ToString().Contains(filtro.ToUpper()) || x.categoria.Descripcion.ToUpper().Contains(filtro.ToUpper()) || x.Descripcion.ToUpper().Contains(filtro.ToUpper()));
+            }
+            else
+            {
+                filtrolista = ListaArticulos;
+            }
+
+            dgvArticulos.DataSource = null;
+            dgvArticulos.DataSource = filtrolista;
+            ocultarColumnas();
+            
+        }
+
+        private bool validarSeleccion()
+        {
+            if(cmbFiltrar.SelectedIndex < 0)
+            {
+                MessageBox.Show("Por favor, seleccione un tipo de filtro.");
+                return true;
+            }
+            return false;
+        }
+
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio filtrado = new ArticuloNegocio();
+            try
+            {
+                if (validarSeleccion())
+                    return;
+
+                string seleccion = cmbFiltrar.SelectedItem.ToString();
+                dgvArticulos.DataSource = filtrado.filtrado(seleccion);
+               
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

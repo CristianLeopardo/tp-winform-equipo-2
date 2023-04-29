@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCategorias));
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.tbxNombre = new System.Windows.Forms.TextBox();
@@ -43,25 +44,30 @@
             // 
             // btnCancelar
             // 
+            this.btnCancelar.BackColor = System.Drawing.Color.Silver;
+            this.btnCancelar.ForeColor = System.Drawing.SystemColors.Highlight;
             this.btnCancelar.Location = new System.Drawing.Point(17, 169);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(117, 33);
             this.btnCancelar.TabIndex = 13;
             this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnAceptar
             // 
+            this.btnAceptar.BackColor = System.Drawing.Color.Silver;
+            this.btnAceptar.ForeColor = System.Drawing.SystemColors.Highlight;
             this.btnAceptar.Location = new System.Drawing.Point(182, 169);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(117, 33);
             this.btnAceptar.TabIndex = 12;
             this.btnAceptar.Text = "Agregar";
-            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.UseVisualStyleBackColor = false;
             // 
             // tbxNombre
             // 
+            this.tbxNombre.BackColor = System.Drawing.SystemColors.MenuBar;
             this.tbxNombre.Location = new System.Drawing.Point(140, 132);
             this.tbxNombre.Name = "tbxNombre";
             this.tbxNombre.Size = new System.Drawing.Size(160, 20);
@@ -135,7 +141,13 @@
             // 
             // cmbCategorias
             // 
+            this.cmbCategorias.BackColor = System.Drawing.SystemColors.MenuBar;
             this.cmbCategorias.FormattingEnabled = true;
+            this.cmbCategorias.Items.AddRange(new object[] {
+            "Celulares",
+            "Televisores",
+            "Media",
+            "Audio"});
             this.cmbCategorias.Location = new System.Drawing.Point(140, 97);
             this.cmbCategorias.Name = "cmbCategorias";
             this.cmbCategorias.Size = new System.Drawing.Size(160, 21);
@@ -146,6 +158,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkSalmon;
             this.ClientSize = new System.Drawing.Size(314, 221);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
@@ -154,6 +167,7 @@
             this.Controls.Add(this.lblSeleccion);
             this.Controls.Add(this.grbSelec);
             this.Controls.Add(this.cmbCategorias);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(330, 260);
             this.Name = "frmCategorias";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

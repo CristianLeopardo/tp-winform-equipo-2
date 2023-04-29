@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmArticulos));
             this.lblUno = new System.Windows.Forms.Label();
             this.lblMDFArt = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
@@ -39,8 +40,8 @@
             this.lblPrecio = new System.Windows.Forms.Label();
             this.txbCodigo = new System.Windows.Forms.TextBox();
             this.txbNombre = new System.Windows.Forms.TextBox();
-            this.tbxDesc = new System.Windows.Forms.TextBox();
-            this.txtURL = new System.Windows.Forms.TextBox();
+            this.txbDesc = new System.Windows.Forms.TextBox();
+            this.txbImagen = new System.Windows.Forms.TextBox();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -135,6 +136,7 @@
             // 
             this.txbCodigo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbCodigo.BackColor = System.Drawing.SystemColors.MenuBar;
             this.txbCodigo.Location = new System.Drawing.Point(132, 67);
             this.txbCodigo.Name = "txbCodigo";
             this.txbCodigo.Size = new System.Drawing.Size(233, 20);
@@ -144,33 +146,37 @@
             // 
             this.txbNombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbNombre.BackColor = System.Drawing.SystemColors.MenuBar;
             this.txbNombre.Location = new System.Drawing.Point(132, 93);
             this.txbNombre.Name = "txbNombre";
             this.txbNombre.Size = new System.Drawing.Size(233, 20);
             this.txbNombre.TabIndex = 10;
             // 
-            // tbxDesc
+            // txbDesc
             // 
-            this.tbxDesc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txbDesc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbxDesc.Location = new System.Drawing.Point(132, 119);
-            this.tbxDesc.Name = "tbxDesc";
-            this.tbxDesc.Size = new System.Drawing.Size(233, 20);
-            this.tbxDesc.TabIndex = 11;
+            this.txbDesc.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.txbDesc.Location = new System.Drawing.Point(132, 119);
+            this.txbDesc.Name = "txbDesc";
+            this.txbDesc.Size = new System.Drawing.Size(233, 20);
+            this.txbDesc.TabIndex = 11;
             // 
-            // txtURL
+            // txbImagen
             // 
-            this.txtURL.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txbImagen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtURL.Location = new System.Drawing.Point(132, 205);
-            this.txtURL.Name = "txtURL";
-            this.txtURL.Size = new System.Drawing.Size(233, 20);
-            this.txtURL.TabIndex = 14;
+            this.txbImagen.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.txbImagen.Location = new System.Drawing.Point(132, 205);
+            this.txbImagen.Name = "txbImagen";
+            this.txbImagen.Size = new System.Drawing.Size(233, 20);
+            this.txbImagen.TabIndex = 14;
             // 
             // txtPrecio
             // 
             this.txtPrecio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPrecio.BackColor = System.Drawing.SystemColors.MenuBar;
             this.txtPrecio.Location = new System.Drawing.Point(132, 235);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(233, 20);
@@ -178,26 +184,37 @@
             // 
             // btnAceptar
             // 
+            this.btnAceptar.BackColor = System.Drawing.Color.Silver;
+            this.btnAceptar.ForeColor = System.Drawing.SystemColors.Highlight;
             this.btnAceptar.Location = new System.Drawing.Point(256, 299);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(109, 24);
             this.btnAceptar.TabIndex = 16;
             this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.UseVisualStyleBackColor = false;
             // 
             // btnCancelar
             // 
+            this.btnCancelar.BackColor = System.Drawing.Color.Silver;
+            this.btnCancelar.ForeColor = System.Drawing.SystemColors.Highlight;
             this.btnCancelar.Location = new System.Drawing.Point(32, 299);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(109, 24);
             this.btnCancelar.TabIndex = 17;
             this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // cmbMarca
             // 
+            this.cmbMarca.BackColor = System.Drawing.SystemColors.MenuBar;
             this.cmbMarca.FormattingEnabled = true;
+            this.cmbMarca.Items.AddRange(new object[] {
+            "Samsung",
+            "Apple",
+            "Sony",
+            "Huawei",
+            "Motorola"});
             this.cmbMarca.Location = new System.Drawing.Point(132, 147);
             this.cmbMarca.Name = "cmbMarca";
             this.cmbMarca.Size = new System.Drawing.Size(233, 21);
@@ -205,7 +222,13 @@
             // 
             // cmbCategoria
             // 
+            this.cmbCategoria.BackColor = System.Drawing.SystemColors.MenuBar;
             this.cmbCategoria.FormattingEnabled = true;
+            this.cmbCategoria.Items.AddRange(new object[] {
+            "Celulares",
+            "Televisores",
+            "Media",
+            "Audio"});
             this.cmbCategoria.Location = new System.Drawing.Point(132, 178);
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(233, 21);
@@ -215,14 +238,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkSalmon;
             this.ClientSize = new System.Drawing.Size(404, 361);
             this.Controls.Add(this.cmbCategoria);
             this.Controls.Add(this.cmbMarca);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.txtPrecio);
-            this.Controls.Add(this.txtURL);
-            this.Controls.Add(this.tbxDesc);
+            this.Controls.Add(this.txbImagen);
+            this.Controls.Add(this.txbDesc);
             this.Controls.Add(this.txbNombre);
             this.Controls.Add(this.txbCodigo);
             this.Controls.Add(this.lblPrecio);
@@ -234,6 +258,7 @@
             this.Controls.Add(this.lblCodigo);
             this.Controls.Add(this.lblMDFArt);
             this.Controls.Add(this.lblUno);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(420, 400);
             this.Name = "frmArticulos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -257,8 +282,8 @@
         private System.Windows.Forms.Label lblPrecio;
         private System.Windows.Forms.TextBox txbCodigo;
         private System.Windows.Forms.TextBox txbNombre;
-        private System.Windows.Forms.TextBox tbxDesc;
-        private System.Windows.Forms.TextBox txtURL;
+        private System.Windows.Forms.TextBox txbDesc;
+        private System.Windows.Forms.TextBox txbImagen;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;

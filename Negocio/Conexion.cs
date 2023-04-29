@@ -20,7 +20,7 @@ namespace Negocio
 
         public Conexion()
         {
-            conexion = new SqlConnection("Server=.\\SQL2; database=CATALOGO_P3_DB; integrated security=true");
+            conexion = new SqlConnection("Server=.\\LABO3; database=CATALOGO_P3_DB; integrated security=true");
             comando = new SqlCommand();
         }
 
@@ -28,6 +28,15 @@ namespace Negocio
         {
             comando.CommandType = System.Data.CommandType.Text;
             comando.CommandText = consulta;
+        }
+        public void setearParametro(string nombre, object valor)
+        {
+            comando.Parameters.AddWithValue(nombre, valor);
+        }
+        public void FiltrarBusqueda(string FBusqueda)
+        {
+            comando.CommandType = System.Data.CommandType.Text;
+            comando.CommandText = FBusqueda;
         }
 
         public void Ejecutarconsulta()
@@ -41,6 +50,20 @@ namespace Negocio
             catch (Exception ex)
             {
 
+                throw ex;
+            }
+        }
+
+        public void ejecutarAccion()
+        {
+            comando.Connection = conexion;
+            try
+            {
+                conexion.Open();
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
                 throw ex;
             }
         }

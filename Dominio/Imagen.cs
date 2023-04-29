@@ -12,6 +12,10 @@ namespace Dominio
 
         public string URLImagen { get; set; }
 
+        public static explicit operator Imagen(string v)
+        {
+            throw new NotImplementedException();
+        }
         public override string ToString()
         {
             return URLImagen;
