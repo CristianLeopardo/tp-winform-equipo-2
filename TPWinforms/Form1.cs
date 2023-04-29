@@ -17,6 +17,26 @@ namespace TPWinforms
             InitializeComponent();
         }
 
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+           frmArticulos iniciar = new frmArticulos();
+            iniciar.Texto = "";
+            iniciar.ShowDialog();
+        }
 
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            frmArticulos iniciar = new frmArticulos();
+            if  (tbxBuscar.Text =="")
+            {
+                MessageBox.Show("Seleccione un articulo");
+            }
+            else
+            {
+                iniciar.Texto = tbxBuscar.Text;
+                iniciar.ShowDialog();
+            }
+            
+        }
     }
 }

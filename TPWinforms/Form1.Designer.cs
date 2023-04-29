@@ -129,6 +129,7 @@
             this.btnModificar.TabIndex = 8;
             this.btnModificar.Text = "Modificar articulo";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminar
             // 
@@ -147,6 +148,7 @@
             this.btnAgregar.TabIndex = 10;
             this.btnAgregar.Text = "Agregar articulo";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnDetalle
             // 
