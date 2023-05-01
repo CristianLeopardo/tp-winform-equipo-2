@@ -174,6 +174,7 @@
             this.Name = "frmMarcas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administrar Marcas";
+            this.Load += new System.EventHandler(this.frmMarcas_Load);
             this.grbSelec.ResumeLayout(false);
             this.grbSelec.PerformLayout();
             this.ResumeLayout(false);

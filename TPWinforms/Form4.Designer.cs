@@ -172,6 +172,7 @@
             this.Name = "frmCategorias";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administrar Categorias";
+            this.Load += new System.EventHandler(this.frmCategorias_Load);
             this.grbSelec.ResumeLayout(false);
             this.grbSelec.PerformLayout();
             this.ResumeLayout(false);

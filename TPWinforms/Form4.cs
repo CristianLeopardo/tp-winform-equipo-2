@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -47,6 +48,21 @@ namespace TPWinforms
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void frmCategorias_Load(object sender, EventArgs e)
+        {
+            CategoriaNegocio categoria = new CategoriaNegocio();
+            try
+            {
+                cmbCategorias.DataSource = categoria.ListarMarcas();
+                cmbCategorias.ValueMember = "Id";
+                cmbCategorias.DisplayMember = "Descripcion";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

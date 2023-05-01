@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,7 @@ namespace TPWinforms
         {
             InitializeComponent();
         }
+
 
         private void rbtAgregar_CheckedChanged(object sender, EventArgs e)
         {
@@ -47,6 +49,21 @@ namespace TPWinforms
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void frmMarcas_Load(object sender, EventArgs e)
+        {
+            MarcaNegocio marca = new MarcaNegocio();
+            try
+            {
+                cmbMarcas.DataSource = marca.ListarMarcas();
+                cmbMarcas.ValueMember = "Id";
+                cmbMarcas.DisplayMember = "Descripcion";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }
