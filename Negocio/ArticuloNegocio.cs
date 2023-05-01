@@ -53,6 +53,9 @@ namespace Negocio
         }
 
 
+        
+
+
         public List<Articulos> filtrado(string seleccion)
         {
             List<Articulos> lista = new List<Articulos> ();
@@ -98,6 +101,8 @@ namespace Negocio
                 throw ex;
             }
         }
+
+
 
         /*
         public void modificar(Articulos art)

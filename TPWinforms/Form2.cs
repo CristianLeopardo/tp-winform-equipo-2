@@ -39,6 +39,28 @@ namespace TPWinforms
                 lblMDFArt.Visible = true;
                 lblUno.Text = Texto;
             }
+            MarcaNegocio marca = new MarcaNegocio();
+            try
+            {
+                cmbMarca.DataSource = marca.ListarMarcas();
+                cmbMarca.ValueMember = "Id";
+                cmbMarca.DisplayMember = "Descripcion";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            CategoriaNegocio categoria = new CategoriaNegocio();
+            try
+            {
+                cmbCategoria.DataSource = categoria.ListarMarcas();
+                cmbCategoria.ValueMember = "Id";
+                cmbCategoria.DisplayMember = "Descripcion";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

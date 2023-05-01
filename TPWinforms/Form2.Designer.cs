@@ -209,12 +209,6 @@
             // 
             this.cmbMarca.BackColor = System.Drawing.SystemColors.MenuBar;
             this.cmbMarca.FormattingEnabled = true;
-            this.cmbMarca.Items.AddRange(new object[] {
-            "Samsung",
-            "Apple",
-            "Sony",
-            "Huawei",
-            "Motorola"});
             this.cmbMarca.Location = new System.Drawing.Point(132, 147);
             this.cmbMarca.Name = "cmbMarca";
             this.cmbMarca.Size = new System.Drawing.Size(233, 21);
@@ -224,11 +218,6 @@
             // 
             this.cmbCategoria.BackColor = System.Drawing.SystemColors.MenuBar;
             this.cmbCategoria.FormattingEnabled = true;
-            this.cmbCategoria.Items.AddRange(new object[] {
-            "Celulares",
-            "Televisores",
-            "Media",
-            "Audio"});
             this.cmbCategoria.Location = new System.Drawing.Point(132, 178);
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(233, 21);
