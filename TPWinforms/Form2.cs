@@ -67,45 +67,44 @@ namespace TPWinforms
         {
             Close();
         }
-        /*
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            ArticuloNegocio articuloNeg =  new ArticuloNegocio();
-            try
-            {
-                if (articulo == null)
-                    articulo = new Articulos();
+           ArticuloNegocio articuloNeg =  new ArticuloNegocio();
+           try
+           {
+               if (articulo == null)
+                   articulo = new Articulos();
 
-                articulo.Codigo = txbCodigo.Text;
-                articulo.Nombre = txbNombre.Text;
-                articulo.Descripcion = txbDesc.Text;
-                articulo.marca = (string)(Marca)cmbMarca.SelectedItem;
-                articulo.categoria = (Categoria)cmbCategoria.SelectedItem;
-                articulo.imagen = (Imagen)txbImagen.Text;
-                articulo.Precio = txtPrecio.Text;
+               articulo.Codigo = txbCodigo.Text;
+               articulo.Nombre = txbNombre.Text;
+               articulo.Descripcion = txbDesc.Text;
+               articulo.marca = (Marca)cmbMarca.SelectedItem;
+               articulo.categoria = (Categoria)cmbCategoria.SelectedItem;
+               //articulo.imagen = (Imagen)txbImagen.Text;
+               articulo.Precio = decimal.Parse(txtPrecio.Text);
 
-                f(articulo.id != 0)
-                {
-                    articuloNeg.modificado(articulo);
-                    MessageBox.Show("Modifiado exitosamente...");
-                }
-                else
-                {
-                    articuloNeg.agregar(articulo);
-                    MessageBox.Show("Agregado exitosamente...");
-                }
+               if(articulo.id != 0)
+               {
+                   //articuloNeg.modificado(articulo);
+                   MessageBox.Show("Modifiado exitosamente...");
+               }
+               else
+               {
+                   articuloNeg.Agregar(articulo);
+                   MessageBox.Show("Agregado exitosamente...");
+               }
 
-                Close();
+               Close();
 
 
-            }
-            catch (Exception ex)
-            {
+           }
+           catch (Exception ex)
+           {
 
-                MessageBox.Show(ex.ToString());
-            }
-            
-        }*/
+               MessageBox.Show(ex.ToString());
+           }
+
+        }
 
     }
 

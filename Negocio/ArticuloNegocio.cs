@@ -52,10 +52,6 @@ namespace Negocio
 
         }
 
-
-        
-
-
         public List<Articulos> filtrado(string seleccion)
         {
             List<Articulos> lista = new List<Articulos> ();
@@ -102,7 +98,28 @@ namespace Negocio
             }
         }
 
+        public void Agregar(Articulos nuevo)
+        {
+            Conexion datos = new Conexion();
+            try
+            {
+                datos.SetearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) VALUES ('@Codigo', '@Nombre', '@Descripcion', @IdMarca, @IdCategoria, @Precio)");
+                datos.setearParametro("@Codigo", nuevo.Codigo);
+                datos.setearParametro("@Nombre", nuevo.Nombre);
+                datos.setearParametro("@Descripcion", nuevo.Descripcion);
+                datos.setearParametro("@IdMarca", nuevo.marca.Id);
+                datos.setearParametro("@IdCategoria", nuevo.categoria.Id);
+                datos.setearParametro("@Precio", nuevo.Precio);
+                datos.ejecutarAccion();
+                datos.Cerraconexion();
 
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
 
         /*
         public void modificar(Articulos art)
