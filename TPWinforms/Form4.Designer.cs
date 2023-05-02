@@ -64,6 +64,7 @@
             this.btnAceptar.TabIndex = 12;
             this.btnAceptar.Text = "Agregar";
             this.btnAceptar.UseVisualStyleBackColor = false;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // tbxNombre
             // 
@@ -142,6 +143,7 @@
             // cmbCategorias
             // 
             this.cmbCategorias.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.cmbCategorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategorias.FormattingEnabled = true;
             this.cmbCategorias.Items.AddRange(new object[] {
             "Celulares",

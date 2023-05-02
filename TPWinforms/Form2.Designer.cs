@@ -208,6 +208,7 @@
             // cmbMarca
             // 
             this.cmbMarca.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.cmbMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMarca.FormattingEnabled = true;
             this.cmbMarca.Location = new System.Drawing.Point(132, 147);
             this.cmbMarca.Name = "cmbMarca";
@@ -217,6 +218,7 @@
             // cmbCategoria
             // 
             this.cmbCategoria.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.cmbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategoria.FormattingEnabled = true;
             this.cmbCategoria.Location = new System.Drawing.Point(132, 178);
             this.cmbCategoria.Name = "cmbCategoria";

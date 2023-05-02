@@ -1,4 +1,5 @@
-﻿using Negocio;
+﻿using Dominio;
+using Negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -13,9 +15,15 @@ namespace TPWinforms
 {
     public partial class frmCategorias : Form
     {
+        private Categoria categoria = null;
         public frmCategorias()
         {
             InitializeComponent();
+        }
+        public frmCategorias(Categoria categoria)
+        {
+            InitializeComponent();
+            this.categoria = categoria;
         }
 
         private void rbtAgregar_CheckedChanged(object sender, EventArgs e)
@@ -63,6 +71,27 @@ namespace TPWinforms
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            CategoriaNegocio negocio = new CategoriaNegocio();
+            if (rbtAgregar.Checked == true)
+            {
+                categoria = new Categoria();
+                try
+                {
+                    categoria.Descripcion = tbxNombre.Text;
+                    negocio.AgregarCategoria(categoria);
+                    MessageBox.Show("Categoria Agregada");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+            Close();
+
         }
     }
 }

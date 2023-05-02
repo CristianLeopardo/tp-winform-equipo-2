@@ -37,5 +37,23 @@ namespace Negocio
             }
 
         }
+        public void AgregarCategoria(Categoria categoria)
+        {
+            Conexion conexion = new Conexion();
+            try
+            {
+                conexion.SetearConsulta("insert into CATEGORIAS (Descripcion) values (@Descripcion)");
+                conexion.setearParametro("@Descripcion", categoria.Descripcion);
+                conexion.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conexion.Cerraconexion();
+            }
+        }
     }
 }

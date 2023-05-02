@@ -45,6 +45,7 @@
             // cmbMarcas
             // 
             this.cmbMarcas.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.cmbMarcas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMarcas.FormattingEnabled = true;
             this.cmbMarcas.Items.AddRange(new object[] {
             "Samsung",
@@ -143,6 +144,7 @@
             this.btnAceptar.TabIndex = 5;
             this.btnAceptar.Text = "Agregar";
             this.btnAceptar.UseVisualStyleBackColor = false;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnCancelar
             // 

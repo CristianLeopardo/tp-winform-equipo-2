@@ -1,5 +1,7 @@
-﻿using Negocio;
+﻿using Dominio;
+using Negocio;
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,9 +15,16 @@ namespace TPWinforms
 {
     public partial class frmMarcas : Form
     {
+        private Marca marca = null;
+
         public frmMarcas()
         {
             InitializeComponent();
+        }
+        public frmMarcas(Marca marca)
+        {
+            InitializeComponent();
+            this.marca = marca;
         }
 
 
@@ -64,6 +73,27 @@ namespace TPWinforms
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            MarcaNegocio negocio = new MarcaNegocio();
+            if  (rbtAgregar.Checked == true) 
+            {
+                marca = new Marca();
+                try
+                {
+                    marca.Descripcion = tbxNombre.Text;
+                    negocio.AgregarMarca(marca);
+                    MessageBox.Show("Marca Agregada");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+            Close();
+
         }
     }
 }
