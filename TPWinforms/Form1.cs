@@ -28,21 +28,15 @@ namespace TPWinforms
            frmArticulos iniciar = new frmArticulos();
             iniciar.Texto = "";
             iniciar.ShowDialog();
+            cargarInfo();
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            frmArticulos iniciar = new frmArticulos();
             Articulos Seleccionado = (Articulos)dgvArticulos.CurrentRow.DataBoundItem;
-            if  (Seleccionado.Nombre == "")
-            {
-                MessageBox.Show("Seleccione un articulo");
-            }
-            else
-            {
-                iniciar.Texto = Seleccionado.Nombre;
-                iniciar.ShowDialog();
-            }
+            frmArticulos modificar = new frmArticulos(Seleccionado);
+            modificar.ShowDialog();
+            cargarInfo();
             
         }
 
@@ -54,9 +48,15 @@ namespace TPWinforms
 
         private void frmInicio_Load(object sender, EventArgs e)
         {
+            cargarInfo();
+        }
+
+        private void cargarInfo()
+        {
             ArticuloNegocio negocio = new ArticuloNegocio();
             ListaArticulos = negocio.Listar();
             dgvArticulos.DataSource = ListaArticulos;
+            dgvArticulos.Columns["Id"].Visible = false;
             ocultarColumnas();
         }
 

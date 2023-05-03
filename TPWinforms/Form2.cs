@@ -23,39 +23,45 @@ namespace TPWinforms
         {
 
             InitializeComponent();
+            Text = "Articulo Nuevo";
            
+        }
+
+        public frmArticulos(Articulos Articulo)
+        {
+            InitializeComponent();
+            this.articulo = Articulo;
+            Text = "Modificar Articulo";
+
         }
 
         private void frmArticulos_Load(object sender, EventArgs e)
         {
-            if (Texto == "") 
-            { 
-                lblUno.Visible = false;
-                lblMDFArt.Visible = false;
-            }
-            else 
-            { 
-                lblUno.Visible = true;
-                lblMDFArt.Visible = true;
-                lblUno.Text = Texto;
-            }
             MarcaNegocio marca = new MarcaNegocio();
+            CategoriaNegocio categoria = new CategoriaNegocio();
+            Imagen imagen = new Imagen();
             try
             {
                 cmbMarca.DataSource = marca.ListarMarcas();
                 cmbMarca.ValueMember = "Id";
                 cmbMarca.DisplayMember = "Descripcion";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-            CategoriaNegocio categoria = new CategoriaNegocio();
-            try
-            {
+
                 cmbCategoria.DataSource = categoria.ListarMarcas();
                 cmbCategoria.ValueMember = "Id";
                 cmbCategoria.DisplayMember = "Descripcion";
+
+                if (articulo != null)
+                {
+                    txbCodigo.Text = articulo.Codigo;
+                    txbNombre.Text = articulo.Nombre;
+                    txbDesc.Text = articulo.Descripcion;
+                    cmbMarca.SelectedValue = articulo.marca.Id;
+                    cmbCategoria.SelectedValue = articulo.categoria.Id;
+                    txbImagen.Text = articulo.imagen.URLImagen;
+                    txtPrecio.Text = articulo.Precio.ToString();
+                    
+
+            }
             }
             catch (Exception ex)
             {
@@ -80,13 +86,13 @@ namespace TPWinforms
                articulo.Descripcion = txbDesc.Text;
                articulo.marca = (Marca)cmbMarca.SelectedItem;
                articulo.categoria = (Categoria)cmbCategoria.SelectedItem;
-               //articulo.imagen = (Imagen)txbImagen.Text;
+               articulo.imagen.URLImagen = txbImagen.Text;
                articulo.Precio = decimal.Parse(txtPrecio.Text);
 
                if(articulo.id != 0)
                {
-                   //articuloNeg.modificado(articulo);
-                   MessageBox.Show("Modifiado exitosamente...");
+                   articuloNeg.modificar(articulo);
+                   MessageBox.Show("Modificado exitosamente...");
                }
                else
                {
