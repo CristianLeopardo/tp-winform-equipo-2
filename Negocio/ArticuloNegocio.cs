@@ -108,13 +108,14 @@ namespace Negocio
             Conexion datos = new Conexion();
             try
             {
-                datos.SetearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) VALUES ('@Codigo', '@Nombre', '@Descripcion', @IdMarca, @IdCategoria, @Precio)");
+                datos.SetearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) VALUES (@Codigo, @Nombre, @Descripcion, @IdMarca, @IdCategoria, @Precio)");
                 datos.setearParametro("@Codigo", nuevo.Codigo);
                 datos.setearParametro("@Nombre", nuevo.Nombre);
                 datos.setearParametro("@Descripcion", nuevo.Descripcion);
                 datos.setearParametro("@IdMarca", nuevo.marca.Id);
                 datos.setearParametro("@IdCategoria", nuevo.categoria.Id);
                 datos.setearParametro("@Precio", nuevo.Precio);
+                //datos.setearParametro("@ImagenUrl", nuevo.imagen.URLImagen);
                 datos.ejecutarAccion();
                 datos.Cerraconexion();
 
@@ -132,14 +133,14 @@ namespace Negocio
             Conexion datos = new Conexion();
             try
             {
-                datos.SetearConsulta("update ARTICULOS set Codigo = @codigo, nombre = @nombre, Descripcion = @desc, idMarca = @idmarca, idcategoria = @idcategoria, Precio = @precio, where id = @id");
-                datos.SetearConsulta("update IMAGENES set imagenurl = @imagen where id = @id");
+                datos.SetearConsulta("update ARTICULOS set Codigo = @codigo, Nombre = @nombre, Descripcion = @desc, IdMarca = @idmarca, Idcategoria = @idcategoria, Precio = @precio where id = @id");
+                //datos.SetearConsulta("update IMAGENES set imagenurl = @imagen where id = @id");
                 datos.setearParametro("@codigo", art.Codigo);
                 datos.setearParametro("@nombre", art.Nombre);
                 datos.setearParametro("@desc", art.Descripcion);
                 datos.setearParametro("@idmarca", art.marca.Id);
                 datos.setearParametro("@idcategoria", art.categoria.Id);
-                datos.setearParametro("@imagen", art.imagen.URLImagen);
+                //datos.setearParametro("@imagen", art.imagen.URLImagen);
                 datos.setearParametro("@precio", art.Precio);
                 datos.setearParametro("@id", art.id);
 

@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -80,6 +81,7 @@ namespace TPWinforms
            {
                if (articulo == null)
                    articulo = new Articulos();
+           
 
                articulo.Codigo = txbCodigo.Text;
                articulo.Nombre = txbNombre.Text;

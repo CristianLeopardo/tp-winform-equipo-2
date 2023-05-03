@@ -87,7 +87,7 @@ namespace TPWinforms
         private void ocultarColumnas()
         {
             dgvArticulos.Columns["imagen"].Visible = false;
-            dgvArticulos.Columns["Codigo"].Visible = false;
+            
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
