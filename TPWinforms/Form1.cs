@@ -33,10 +33,14 @@ namespace TPWinforms
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            Articulos Seleccionado = (Articulos)dgvArticulos.CurrentRow.DataBoundItem;
-            frmArticulos modificar = new frmArticulos(Seleccionado);
-            modificar.ShowDialog();
-            cargarInfo();
+            if(dgvArticulos.CurrentRow != null)
+            {
+                Articulos Seleccionado = (Articulos)dgvArticulos.CurrentRow.DataBoundItem;
+                frmArticulos modificar = new frmArticulos(Seleccionado);
+                modificar.ShowDialog();
+                cargarInfo();
+            }
+            
             
         }
 
@@ -49,6 +53,9 @@ namespace TPWinforms
         private void frmInicio_Load(object sender, EventArgs e)
         {
             cargarInfo();
+            cmbFiltrar.Items.Add("Nombre");
+            cmbFiltrar.Items.Add("Marca");
+            cmbFiltrar.Items.Add("Categoria");
         }
 
         private void cargarInfo()
@@ -68,8 +75,12 @@ namespace TPWinforms
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
-            Articulos Seleccionado = (Articulos)dgvArticulos.CurrentRow.DataBoundItem;
-            cargarImagen(Seleccionado.imagen.URLImagen);
+            if(dgvArticulos.CurrentRow != null)
+            {
+                Articulos Seleccionado = (Articulos)dgvArticulos.CurrentRow.DataBoundItem;
+                cargarImagen(Seleccionado.imagen.URLImagen);
+            }
+            
         }
         private void cargarImagen(string imagen)
         {
@@ -87,27 +98,7 @@ namespace TPWinforms
         private void ocultarColumnas()
         {
             dgvArticulos.Columns["imagen"].Visible = false;
-            
-        }
-
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            List<Articulos> filtrolista;
-            string filtro = tbxBuscar.Text;
-
-            if(filtro.Length != 0)
-            {
-                filtrolista = ListaArticulos.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.marca.Descripcion.ToUpper().Contains(filtro.ToUpper()) || x.Precio.ToString().Contains(filtro.ToUpper()) || x.categoria.Descripcion.ToUpper().Contains(filtro.ToUpper()) || x.Descripcion.ToUpper().Contains(filtro.ToUpper()));
-            }
-            else
-            {
-                filtrolista = ListaArticulos;
-            }
-
-            dgvArticulos.DataSource = null;
-            dgvArticulos.DataSource = filtrolista;
-            ocultarColumnas();
-            
+            dgvArticulos.Columns["Id"].Visible = false;
         }
 
         private bool validarSeleccion()
@@ -122,28 +113,44 @@ namespace TPWinforms
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            ArticuloNegocio filtrado = new ArticuloNegocio();
+            ArticuloNegocio artneg = new ArticuloNegocio();
             try
             {
-                if (validarSeleccion())
-                    return;
-
                 string seleccion = cmbFiltrar.SelectedItem.ToString();
-                dgvArticulos.DataSource = filtrado.filtrado(seleccion);
-               
-
+                string filtro = tbxBuscar.Text;
+                dgvArticulos.DataSource = artneg.filtrado(seleccion, filtro);
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.ToString());
             }
+            
 
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void txbBusqueda_TextChanged(object sender, EventArgs e)
+        {
+            List<Articulos> filtrolista;
+            string filtro = txbBusqueda.Text;
+
+            if (filtro.Length > 1)
+            {
+                filtrolista = ListaArticulos.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.marca.Descripcion.ToUpper().Contains(filtro.ToUpper()) || x.Precio.ToString().Contains(filtro.ToUpper()) || x.categoria.Descripcion.ToUpper().Contains(filtro.ToUpper()) || x.Descripcion.ToUpper().Contains(filtro.ToUpper()));
+            }
+            else
+            {
+                filtrolista = ListaArticulos;
+            }
+
+            dgvArticulos.DataSource = null;
+            dgvArticulos.DataSource = filtrolista;
+            ocultarColumnas();
         }
     }
 }

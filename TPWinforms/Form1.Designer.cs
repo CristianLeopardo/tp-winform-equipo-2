@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInicio));
             this.dgvArticulos = new System.Windows.Forms.DataGridView();
             this.tbxBuscar = new System.Windows.Forms.TextBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.lblInfo1 = new System.Windows.Forms.Label();
             this.lblCriterio = new System.Windows.Forms.Label();
             this.btnFiltrar = new System.Windows.Forms.Button();
@@ -52,6 +51,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblImagenes = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.txbBusqueda = new System.Windows.Forms.TextBox();
+            this.lblBusqueda = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -76,28 +77,16 @@
             // tbxBuscar
             // 
             this.tbxBuscar.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.tbxBuscar.Location = new System.Drawing.Point(12, 87);
+            this.tbxBuscar.Location = new System.Drawing.Point(11, 137);
             this.tbxBuscar.Name = "tbxBuscar";
             this.tbxBuscar.Size = new System.Drawing.Size(134, 20);
             this.tbxBuscar.TabIndex = 1;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackColor = System.Drawing.Color.Silver;
-            this.btnBuscar.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnBuscar.Location = new System.Drawing.Point(152, 87);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(66, 20);
-            this.btnBuscar.TabIndex = 2;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // lblInfo1
             // 
             this.lblInfo1.AutoSize = true;
             this.lblInfo1.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfo1.Location = new System.Drawing.Point(9, 68);
+            this.lblInfo1.Location = new System.Drawing.Point(9, 118);
             this.lblInfo1.Name = "lblInfo1";
             this.lblInfo1.Size = new System.Drawing.Size(152, 16);
             this.lblInfo1.TabIndex = 3;
@@ -107,11 +96,11 @@
             // 
             this.lblCriterio.AutoSize = true;
             this.lblCriterio.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCriterio.Location = new System.Drawing.Point(9, 117);
+            this.lblCriterio.Location = new System.Drawing.Point(8, 68);
             this.lblCriterio.Name = "lblCriterio";
-            this.lblCriterio.Size = new System.Drawing.Size(158, 16);
+            this.lblCriterio.Size = new System.Drawing.Size(154, 16);
             this.lblCriterio.TabIndex = 5;
-            this.lblCriterio.Text = "Indique por que quiere filtrar";
+            this.lblCriterio.Text = "Indique el tipo de busqueda";
             // 
             // btnFiltrar
             // 
@@ -128,16 +117,10 @@
             // cmbFiltrar
             // 
             this.cmbFiltrar.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.cmbFiltrar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbFiltrar.ForeColor = System.Drawing.SystemColors.InfoText;
             this.cmbFiltrar.FormattingEnabled = true;
-            this.cmbFiltrar.Items.AddRange(new object[] {
-            "Todos los datos",
-            "Nombre",
-            "Marca",
-            "Categoría",
-            "Precio",
-            "Descripción"});
-            this.cmbFiltrar.Location = new System.Drawing.Point(12, 137);
+            this.cmbFiltrar.Location = new System.Drawing.Point(11, 87);
             this.cmbFiltrar.Name = "cmbFiltrar";
             this.cmbFiltrar.Size = new System.Drawing.Size(133, 21);
             this.cmbFiltrar.TabIndex = 7;
@@ -293,12 +276,31 @@
             this.label2.TabIndex = 20;
             this.label2.Text = "Imagenes";
             // 
+            // txbBusqueda
+            // 
+            this.txbBusqueda.Location = new System.Drawing.Point(328, 61);
+            this.txbBusqueda.Name = "txbBusqueda";
+            this.txbBusqueda.Size = new System.Drawing.Size(209, 20);
+            this.txbBusqueda.TabIndex = 21;
+            this.txbBusqueda.TextChanged += new System.EventHandler(this.txbBusqueda_TextChanged);
+            // 
+            // lblBusqueda
+            // 
+            this.lblBusqueda.AutoSize = true;
+            this.lblBusqueda.Location = new System.Drawing.Point(264, 64);
+            this.lblBusqueda.Name = "lblBusqueda";
+            this.lblBusqueda.Size = new System.Drawing.Size(58, 13);
+            this.lblBusqueda.TabIndex = 22;
+            this.lblBusqueda.Text = "Busqueda:";
+            // 
             // frmInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSalmon;
             this.ClientSize = new System.Drawing.Size(1008, 441);
+            this.Controls.Add(this.lblBusqueda);
+            this.Controls.Add(this.txbBusqueda);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblImagenes);
             this.Controls.Add(this.label1);
@@ -317,7 +319,6 @@
             this.Controls.Add(this.btnFiltrar);
             this.Controls.Add(this.lblCriterio);
             this.Controls.Add(this.lblInfo1);
-            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.tbxBuscar);
             this.Controls.Add(this.dgvArticulos);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -337,7 +338,6 @@
 
         #endregion
         private System.Windows.Forms.TextBox tbxBuscar;
-        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label lblInfo1;
         private System.Windows.Forms.Label lblCriterio;
         private System.Windows.Forms.Button btnFiltrar;
@@ -358,6 +358,8 @@
         private System.Windows.Forms.Label lblImagenes;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvArticulos;
+        private System.Windows.Forms.TextBox txbBusqueda;
+        private System.Windows.Forms.Label lblBusqueda;
     }
 }
 

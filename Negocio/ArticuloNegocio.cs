@@ -56,21 +56,24 @@ namespace Negocio
 
         }
 
-        public List<Articulos> filtrado(string seleccion)
+        public List<Articulos> filtrado(string seleccion, string filtro)
         {
             List<Articulos> lista = new List<Articulos> ();
             Conexion datos = new Conexion();
 
             try
             {
-                string consulta = "SELECT a.Codigo, a.Nombre, a.Descripcion, a.Precio, m.Descripcion as Marca, c.Descripcion as Categoria, i.ImagenUrl from ARTICULOS a INNER JOIN MARCAS m on a.IdMarca=m.Id INNER JOIN CATEGORIAS c on a.IdCategoria=c.Id inner join IMAGENES I on I.IdArticulo = a.Id";
+                string consulta = "SELECT a.id, a.Codigo, a.Nombre, a.Descripcion, a.Precio, m.Id , m.Descripcion as Marca, c.Id, c.Descripcion as Categoria, i.ImagenUrl \r\nfrom ARTICULOS a INNER JOIN MARCAS m on a.IdMarca=m.Id INNER JOIN CATEGORIAS c on a.IdCategoria=c.Id inner join IMAGENES I on I.IdArticulo = a.Id where ";
                 switch (seleccion)
                 {
                     case "Nombre":
-                        consulta += "a.Nombre like '" + seleccion + "%' ";
+                        consulta += "a.Nombre like '%" + filtro + "%' ";
                         break;
                     case "Marca":
-                        consulta += "Marca like '" + seleccion + "%' ";
+                        consulta += "m.Descripcion like '%" + filtro + "%' ";
+                        break;
+                    case "Categoria":
+                        consulta += "c.Descripcion like '%" + filtro + "%' ";
                         break;
                 }
                 datos.SetearConsulta(consulta);
@@ -78,14 +81,18 @@ namespace Negocio
                 while (datos.Lector.Read())
                 {
                     Articulos obj = new Articulos();
+                    obj.id = (int)datos.Lector["ID"];
                     obj.Codigo = (string)datos.Lector["Codigo"];
                     obj.Nombre = (string)datos.Lector["Nombre"];
                     obj.Descripcion = (string)datos.Lector["Descripcion"];
                     obj.Precio = (decimal)datos.Lector["Precio"];
+
                     obj.marca = new Marca();
+                    obj.marca.Id = (int)datos.Lector["ID"];
                     obj.marca.Descripcion = (string)datos.Lector["Marca"];
 
                     obj.categoria = new Categoria();
+                    obj.categoria.Id = (int)datos.Lector["ID"];
                     obj.categoria.Descripcion = (string)datos.Lector["Categoria"];
 
                     obj.imagen = new Imagen();
@@ -94,6 +101,7 @@ namespace Negocio
 
                     lista.Add(obj);
                 }
+
                 return lista;
             }
             catch (Exception ex)
