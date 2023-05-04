@@ -18,7 +18,7 @@ namespace Negocio
             Conexion datos = new Conexion();
             try
             {
-                datos.SetearConsulta("SELECT a.id, a.Codigo, a.Nombre, a.Descripcion, a.Precio, m.Id , m.Descripcion as Marca, c.Id, c.Descripcion as Categoria, i.ImagenUrl \r\nfrom ARTICULOS a \r\nINNER JOIN MARCAS m on a.IdMarca=m.Id \r\nINNER JOIN CATEGORIAS c on a.IdCategoria=c.Id \r\ninner join IMAGENES I on I.IdArticulo = a.Id");
+                datos.SetearConsulta("SELECT a.id, a.Codigo, a.Nombre, a.Descripcion, a.Precio, m.Id , m.Descripcion as Marca, c.Id, c.Descripcion as Categoria from ARTICULOS a INNER JOIN MARCAS m on a.IdMarca=m.Id INNER JOIN CATEGORIAS c on a.IdCategoria=c.Id ");
                 datos.Ejecutarconsulta();
 
                 while (datos.Lector.Read())
@@ -29,6 +29,11 @@ namespace Negocio
                     obj.Nombre = (string)datos.Lector["Nombre"];
                     obj.Descripcion = (string)datos.Lector["Descripcion"];
                     obj.Precio = (decimal)datos.Lector["Precio"];
+                    /*if (!(datos.Lector["ImagenUrl"] is DBNull))
+                        obj.Imagen2 = (string)datos.Lector["ImagenUrl"];
+                    else
+                        obj.Imagen2 = "";
+                    */
 
                     obj.marca = new Marca();
                     obj.marca.Id = (int)datos.Lector["ID"];
@@ -38,8 +43,8 @@ namespace Negocio
                     obj.categoria.Id = (int)datos.Lector["ID"];
                     obj.categoria.Descripcion = (string)datos.Lector["Categoria"];
 
-                    obj.imagen = new Imagen();
-                    obj.imagen.URLImagen = (string)datos.Lector["ImagenUrl"];
+                   // obj.imagen = new Imagen();
+                    //obj.imagen.URLImagen = (string)datos.Lector["ImagenUrl"];
 
                     lista.Add(obj);
                 }
@@ -55,6 +60,7 @@ namespace Negocio
             }
 
         }
+        
 
         public List<Articulos> filtrado(string seleccion, string filtro)
         {
@@ -81,6 +87,7 @@ namespace Negocio
                 while (datos.Lector.Read())
                 {
                     Articulos obj = new Articulos();
+                    Articulos imglist = new Articulos();
                     obj.id = (int)datos.Lector["ID"];
                     obj.Codigo = (string)datos.Lector["Codigo"];
                     obj.Nombre = (string)datos.Lector["Nombre"];
@@ -95,9 +102,11 @@ namespace Negocio
                     obj.categoria.Id = (int)datos.Lector["ID"];
                     obj.categoria.Descripcion = (string)datos.Lector["Categoria"];
 
-                    obj.imagen = new Imagen();
+                    //obj.imagen = new Imagen();
                     if (!(datos.Lector["ImagenUrl"] is DBNull))
-                        obj.imagen.URLImagen = (string)datos.Lector["ImagenUrl"];
+                        obj.Imagen2 = (string)datos.Lector["ImagenUrl"];
+                    else
+                        obj.Imagen2 = "";
 
                     lista.Add(obj);
                 }
@@ -123,7 +132,6 @@ namespace Negocio
                 datos.setearParametro("@IdMarca", nuevo.marca.Id);
                 datos.setearParametro("@IdCategoria", nuevo.categoria.Id);
                 datos.setearParametro("@Precio", nuevo.Precio);
-                //datos.setearParametro("@ImagenUrl", nuevo.imagen.URLImagen);
                 datos.ejecutarAccion();
                 datos.Cerraconexion();
 
@@ -132,6 +140,10 @@ namespace Negocio
             {
 
                 throw ex;
+            }
+            finally
+            {
+                datos.Cerraconexion();
             }
         }
 
@@ -142,13 +154,11 @@ namespace Negocio
             try
             {
                 datos.SetearConsulta("update ARTICULOS set Codigo = @codigo, Nombre = @nombre, Descripcion = @desc, IdMarca = @idmarca, Idcategoria = @idcategoria, Precio = @precio where id = @id");
-                //datos.SetearConsulta("update IMAGENES set imagenurl = @imagen where id = @id");
                 datos.setearParametro("@codigo", art.Codigo);
                 datos.setearParametro("@nombre", art.Nombre);
                 datos.setearParametro("@desc", art.Descripcion);
                 datos.setearParametro("@idmarca", art.marca.Id);
                 datos.setearParametro("@idcategoria", art.categoria.Id);
-                //datos.setearParametro("@imagen", art.imagen.URLImagen);
                 datos.setearParametro("@precio", art.Precio);
                 datos.setearParametro("@id", art.id);
 
@@ -163,6 +173,36 @@ namespace Negocio
                 datos.Cerraconexion();
             }
            
+        }
+        public List<Articulos> ListarRes()
+        {
+            List<Articulos> lista = new List<Articulos>();
+            Conexion datos = new Conexion();
+            try
+            {
+                datos.SetearConsulta("SELECT a.id, a.Codigo, a.Nombre from ARTICULOS a INNER JOIN MARCAS m on a.IdMarca=m.Id INNER JOIN CATEGORIAS c on a.IdCategoria=c.Id ");
+                datos.Ejecutarconsulta();
+
+                while (datos.Lector.Read())
+                {
+                    Articulos obj = new Articulos();
+                    obj.id = (int)datos.Lector["ID"];
+                    obj.Codigo = (string)datos.Lector["Codigo"];
+                    obj.Nombre = (string)datos.Lector["Nombre"];
+
+                    lista.Add(obj);
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.Cerraconexion();
+            }
+
         }
     }
 }

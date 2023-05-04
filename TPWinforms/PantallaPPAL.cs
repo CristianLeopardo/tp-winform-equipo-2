@@ -23,6 +23,10 @@ namespace TPWinforms
 
         private List<Articulos> ListaArticulos;
 
+        public List<Imagen> ListaImagenes { get; set; }
+
+        public List<Imagen> ImagenFiltrada;
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
            frmArticulos iniciar = new frmArticulos();
@@ -63,7 +67,6 @@ namespace TPWinforms
             ArticuloNegocio negocio = new ArticuloNegocio();
             ListaArticulos = negocio.Listar();
             dgvArticulos.DataSource = ListaArticulos;
-            dgvArticulos.Columns["Id"].Visible = false;
             ocultarColumnas();
         }
 
@@ -78,27 +81,40 @@ namespace TPWinforms
             if(dgvArticulos.CurrentRow != null)
             {
                 Articulos Seleccionado = (Articulos)dgvArticulos.CurrentRow.DataBoundItem;
-                cargarImagen(Seleccionado.imagen.URLImagen);
+                cargarImagen(Seleccionado.id);
             }
             
         }
-        private void cargarImagen(string imagen)
+        private void cargarImagen(int imagen)
         {
-            try
+            ImagenNegocio imagenNegocio = new ImagenNegocio();
+            ListaImagenes = imagenNegocio.listarimagenes();
+
+            System.Collections.IList list = ListaImagenes;
+            for (int i1 = 0; i1 < list.Count; i1++)
             {
-                ptbArticulos.Load(imagen);
-            }
-            catch
-            {
-                ptbArticulos.Load("https://librerialadorita.com/uploads/product_default.jpg");
+                if (ListaImagenes[i1].Id == imagen)
+                {
+                    try
+                    {
+                        ptbArticulos.Load(ListaImagenes[i1].URLImagen);
+                    }
+                    catch
+                    {
+                        ptbArticulos.Load("https://librerialadorita.com/uploads/product_default.jpg");
+                    }
+                }
             }
         }
+
+
 
 
         private void ocultarColumnas()
         {
-            dgvArticulos.Columns["imagen"].Visible = false;
+            dgvArticulos.Columns["Imagen2"].Visible = false;
             dgvArticulos.Columns["Id"].Visible = false;
+            dgvArticulos.Columns["idImagen"].Visible = false;
         }
 
         private bool validarSeleccion()
@@ -151,6 +167,13 @@ namespace TPWinforms
             dgvArticulos.DataSource = null;
             dgvArticulos.DataSource = filtrolista;
             ocultarColumnas();
+        }
+
+        private void btnImagenes_Click(object sender, EventArgs e)
+        {
+            frmImagenes frmImagenes = new frmImagenes();
+            frmImagenes.ShowDialog();
+            cargarInfo();
         }
     }
 }

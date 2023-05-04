@@ -8,14 +8,12 @@ namespace Dominio
 {
     public class Imagen
     {
+        public int Idarticulo { get; set; }
+
         public int Id { get; set; }
 
         public string URLImagen { get; set; }
 
-        //public static explicit operator Imagen(string v)
-        //{
-        //    throw new NotImplementedException();
-        //}
         public override string ToString()
         {
             return URLImagen;

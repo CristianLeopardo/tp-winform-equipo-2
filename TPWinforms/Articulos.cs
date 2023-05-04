@@ -58,7 +58,7 @@ namespace TPWinforms
                     txbDesc.Text = articulo.Descripcion;
                     cmbMarca.SelectedValue = articulo.marca.Id;
                     cmbCategoria.SelectedValue = articulo.categoria.Id;
-                    txbImagen.Text = articulo.imagen.URLImagen;
+                    txbImagen.Text = articulo.Imagen2;
                     txtPrecio.Text = articulo.Precio.ToString();
                     
 
@@ -88,7 +88,7 @@ namespace TPWinforms
                articulo.Descripcion = txbDesc.Text;
                articulo.marca = (Marca)cmbMarca.SelectedItem;
                articulo.categoria = (Categoria)cmbCategoria.SelectedItem;
-               articulo.imagen.URLImagen = txbImagen.Text;
+               //articulo.imagen.URLImagen = txbImagen.Text;
                articulo.Precio = decimal.Parse(txtPrecio.Text);
 
                if(articulo.id != 0)

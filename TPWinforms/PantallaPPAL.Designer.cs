@@ -53,6 +53,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txbBusqueda = new System.Windows.Forms.TextBox();
             this.lblBusqueda = new System.Windows.Forms.Label();
+            this.btnImagenes = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -293,12 +294,24 @@
             this.lblBusqueda.TabIndex = 22;
             this.lblBusqueda.Text = "Busqueda:";
             // 
+            // btnImagenes
+            // 
+            this.btnImagenes.BackColor = System.Drawing.Color.Silver;
+            this.btnImagenes.Location = new System.Drawing.Point(12, 374);
+            this.btnImagenes.Name = "btnImagenes";
+            this.btnImagenes.Size = new System.Drawing.Size(133, 29);
+            this.btnImagenes.TabIndex = 23;
+            this.btnImagenes.Text = "Administrar Imagenes";
+            this.btnImagenes.UseVisualStyleBackColor = false;
+            this.btnImagenes.Click += new System.EventHandler(this.btnImagenes_Click);
+            // 
             // frmInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSalmon;
             this.ClientSize = new System.Drawing.Size(1008, 441);
+            this.Controls.Add(this.btnImagenes);
             this.Controls.Add(this.lblBusqueda);
             this.Controls.Add(this.txbBusqueda);
             this.Controls.Add(this.label2);
@@ -360,6 +373,7 @@
         private System.Windows.Forms.DataGridView dgvArticulos;
         private System.Windows.Forms.TextBox txbBusqueda;
         private System.Windows.Forms.Label lblBusqueda;
+        private System.Windows.Forms.Button btnImagenes;
     }
 }
 
