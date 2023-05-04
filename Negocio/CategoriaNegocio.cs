@@ -55,5 +55,45 @@ namespace Negocio
                 conexion.Cerraconexion();
             }
         }
+
+        public void EliminarCat(int a)
+        {
+            Conexion datos = new Conexion();
+            try
+            {
+                datos.setearParametro("@Id", a);
+                datos.SetearConsulta("delete from CATEGORIAS where Id = @Id");
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.Cerraconexion();
+            }
+        }
+        public void ModificarCat(Categoria nuevo)
+        {
+            Conexion datos = new Conexion();
+            try
+            {
+                datos.SetearConsulta("update CATEGORIAS set Descripcion = @Desc where Id = @Id");
+                datos.setearParametro("@Id", nuevo.Id);
+                datos.setearParametro("@Desc", nuevo.Descripcion);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.Cerraconexion();
+            }
+        }
     }
 }

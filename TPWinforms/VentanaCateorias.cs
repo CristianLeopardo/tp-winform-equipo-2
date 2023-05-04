@@ -10,6 +10,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace TPWinforms
 {
@@ -73,7 +74,7 @@ namespace TPWinforms
             }
         }
 
-        private void btnAceptar_Click(object sender, EventArgs e)
+        public void btnAceptar_Click(object sender, EventArgs e)
         {
             CategoriaNegocio negocio = new CategoriaNegocio();
             if (rbtAgregar.Checked == true)
@@ -89,6 +90,27 @@ namespace TPWinforms
                 {
                     MessageBox.Show(ex.ToString());
                 }
+            }
+            if (rbtEliminar.Checked == true) 
+            {
+                CategoriaNegocio cate = new CategoriaNegocio();
+                int seleccionado;
+                DialogResult respuesta = MessageBox.Show("¿De verdad querés eliminarlo?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (respuesta == DialogResult.Yes)
+                {
+                    seleccionado = (int)cmbCategorias.SelectedValue;
+                    cate.EliminarCat(seleccionado);
+                    MessageBox.Show("Eliminado exitosamente...");
+                }
+            }
+            if (rbtModificar.Checked  == true)
+            {
+                CategoriaNegocio cate = new CategoriaNegocio();
+                Categoria seleccionado = new Categoria();
+                seleccionado.Id = (int)cmbCategorias.SelectedValue;
+                seleccionado.Descripcion = tbxNombre.Text;
+                cate.ModificarCat(seleccionado);
+                MessageBox.Show("Modificado exitosamente...");
             }
             Close();
 

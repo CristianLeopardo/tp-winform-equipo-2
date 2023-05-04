@@ -77,7 +77,6 @@ namespace TPWinforms
                 }
                 if (rbtEliminar.Checked)
                 {
-                    img = new Imagen();
                     DialogResult respuesta = MessageBox.Show("¿De verdad querés eliminarlo?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (respuesta == DialogResult.Yes)
                     {

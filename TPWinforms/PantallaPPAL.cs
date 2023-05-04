@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
 using Negocio;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace TPWinforms
 {
@@ -147,7 +148,7 @@ namespace TPWinforms
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Close();
         }
 
         private void txbBusqueda_TextChanged(object sender, EventArgs e)
@@ -173,6 +174,20 @@ namespace TPWinforms
         {
             frmImagenes frmImagenes = new frmImagenes();
             frmImagenes.ShowDialog();
+            cargarInfo();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio articulo = new ArticuloNegocio();
+            Articulos seleccionado;
+            DialogResult respuesta = MessageBox.Show("¿De verdad querés eliminarlo?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (respuesta == DialogResult.Yes)
+            {
+                seleccionado = (Articulos)dgvArticulos.CurrentRow.DataBoundItem;
+                articulo.Eliminar(seleccionado.id);
+                MessageBox.Show("Eliminado exitosamente...");
+            }
             cargarInfo();
         }
     }

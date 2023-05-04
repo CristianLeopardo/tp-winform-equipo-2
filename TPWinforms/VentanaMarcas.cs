@@ -92,6 +92,28 @@ namespace TPWinforms
                     MessageBox.Show(ex.ToString());
                 }
             }
+            if (rbtEliminar.Checked == true) 
+            {
+                MarcaNegocio marca = new MarcaNegocio();
+                int seleccionado;
+                DialogResult respuesta = MessageBox.Show("¿De verdad querés eliminarlo?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (respuesta == DialogResult.Yes)
+                {
+                    seleccionado = (int)cmbMarcas.SelectedValue;
+                    marca.EliminarMarca(seleccionado);
+                    MessageBox.Show("Eliminado exitosamente...");
+                }
+            }
+            if (rbtModificar.Checked == true) 
+            {
+                MarcaNegocio marca = new MarcaNegocio();
+                Marca seleccionado = new Marca();
+                seleccionado.Id = (int)cmbMarcas.SelectedValue;
+                seleccionado.Descripcion = tbxNombre.Text;
+                marca.ModificarMarca(seleccionado);
+                MessageBox.Show("Modificado exitosamente...");
+            }
+
             Close();
 
         }
