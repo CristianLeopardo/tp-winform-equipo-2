@@ -58,9 +58,15 @@ namespace TPWinforms
         private void frmInicio_Load(object sender, EventArgs e)
         {
             cargarInfo();
+            cmbFiltrar.Items.Add("Codigo");
             cmbFiltrar.Items.Add("Nombre");
+            cmbFiltrar.Items.Add("Descripcion");
             cmbFiltrar.Items.Add("Marca");
             cmbFiltrar.Items.Add("Categoria");
+            cmbFiltrar.Items.Add("Precio");
+            cmbPrecio.Items.Add("Igual a");
+            cmbPrecio.Items.Add("Mayor a");
+            cmbPrecio.Items.Add("Menor a");
         }
 
         private void cargarInfo()
@@ -125,17 +131,50 @@ namespace TPWinforms
                 MessageBox.Show("Por favor, seleccione un tipo de filtro.");
                 return true;
             }
+            if (cmbFiltrar.SelectedItem.ToString() == "Precio")
+            {
+                if (string.IsNullOrEmpty(tbxBuscar.Text))
+                {
+                    MessageBox.Show("Debes ingresar un precio...");
+                    return true;
+                }
+                if (!(soloNumeros(tbxBuscar.Text)))
+                {
+                    MessageBox.Show("Solo nros para filtrar por un campo numérico...");
+                    return true;
+                }
+
+            }
+
+
             return false;
+        }
+        private bool soloNumeros(string cadena)
+        {
+            foreach (char caracter in cadena)
+            {
+                if (!(char.IsNumber(caracter)))
+                    return false;
+            }
+            return true;
         }
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
             ArticuloNegocio artneg = new ArticuloNegocio();
+            string criterio = "";
             try
             {
+                if (validarSeleccion())
+                    return;
                 string seleccion = cmbFiltrar.SelectedItem.ToString();
                 string filtro = tbxBuscar.Text;
-                dgvArticulos.DataSource = artneg.filtrado(seleccion, filtro);
+                if (cmbFiltrar.SelectedItem.ToString() == "Precio")
+                {
+                    criterio = cmbPrecio.SelectedItem.ToString();
+                }
+                
+                dgvArticulos.DataSource = artneg.filtrado(seleccion, filtro, criterio);
             }
             catch (Exception ex)
             {
@@ -189,6 +228,20 @@ namespace TPWinforms
                 MessageBox.Show("Eliminado exitosamente...");
             }
             cargarInfo();
+        }
+
+        private void cmbFiltrar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if  (cmbFiltrar.SelectedItem.ToString() == "Precio")
+            {
+                cmbPrecio.Visible = true;
+                lblNum.Visible = true;
+            }
+            else
+            {
+                cmbPrecio.Visible = false;
+                lblNum.Visible = false;
+            }
         }
     }
 }

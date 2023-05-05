@@ -54,6 +54,8 @@
             this.txbBusqueda = new System.Windows.Forms.TextBox();
             this.lblBusqueda = new System.Windows.Forms.Label();
             this.btnImagenes = new System.Windows.Forms.Button();
+            this.cmbPrecio = new System.Windows.Forms.ComboBox();
+            this.lblNum = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -78,9 +80,9 @@
             // tbxBuscar
             // 
             this.tbxBuscar.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.tbxBuscar.Location = new System.Drawing.Point(11, 137);
+            this.tbxBuscar.Location = new System.Drawing.Point(15, 137);
             this.tbxBuscar.Name = "tbxBuscar";
-            this.tbxBuscar.Size = new System.Drawing.Size(134, 20);
+            this.tbxBuscar.Size = new System.Drawing.Size(131, 20);
             this.tbxBuscar.TabIndex = 2;
             // 
             // lblInfo1
@@ -97,7 +99,7 @@
             // 
             this.lblCriterio.AutoSize = true;
             this.lblCriterio.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCriterio.Location = new System.Drawing.Point(8, 68);
+            this.lblCriterio.Location = new System.Drawing.Point(12, 23);
             this.lblCriterio.Name = "lblCriterio";
             this.lblCriterio.Size = new System.Drawing.Size(154, 16);
             this.lblCriterio.TabIndex = 5;
@@ -121,10 +123,11 @@
             this.cmbFiltrar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbFiltrar.ForeColor = System.Drawing.SystemColors.InfoText;
             this.cmbFiltrar.FormattingEnabled = true;
-            this.cmbFiltrar.Location = new System.Drawing.Point(11, 87);
+            this.cmbFiltrar.Location = new System.Drawing.Point(15, 42);
             this.cmbFiltrar.Name = "cmbFiltrar";
             this.cmbFiltrar.Size = new System.Drawing.Size(133, 21);
             this.cmbFiltrar.TabIndex = 1;
+            this.cmbFiltrar.SelectedIndexChanged += new System.EventHandler(this.cmbFiltrar_SelectedIndexChanged);
             // 
             // btnModificar
             // 
@@ -168,7 +171,7 @@
             this.btnDetalle.ForeColor = System.Drawing.Color.Black;
             this.btnDetalle.Location = new System.Drawing.Point(12, 164);
             this.btnDetalle.Name = "btnDetalle";
-            this.btnDetalle.Size = new System.Drawing.Size(133, 29);
+            this.btnDetalle.Size = new System.Drawing.Size(134, 29);
             this.btnDetalle.TabIndex = 4;
             this.btnDetalle.Text = "Detalle";
             this.btnDetalle.UseVisualStyleBackColor = false;
@@ -306,12 +309,37 @@
             this.btnImagenes.UseVisualStyleBackColor = false;
             this.btnImagenes.Click += new System.EventHandler(this.btnImagenes_Click);
             // 
+            // cmbPrecio
+            // 
+            this.cmbPrecio.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.cmbPrecio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPrecio.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.cmbPrecio.FormattingEnabled = true;
+            this.cmbPrecio.Location = new System.Drawing.Point(15, 94);
+            this.cmbPrecio.Name = "cmbPrecio";
+            this.cmbPrecio.Size = new System.Drawing.Size(133, 21);
+            this.cmbPrecio.TabIndex = 23;
+            this.cmbPrecio.Visible = false;
+            // 
+            // lblNum
+            // 
+            this.lblNum.AutoSize = true;
+            this.lblNum.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNum.Location = new System.Drawing.Point(12, 72);
+            this.lblNum.Name = "lblNum";
+            this.lblNum.Size = new System.Drawing.Size(170, 16);
+            this.lblNum.TabIndex = 24;
+            this.lblNum.Text = "Indique el criterio de busqueda";
+            this.lblNum.Visible = false;
+            // 
             // frmInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSalmon;
             this.ClientSize = new System.Drawing.Size(1008, 441);
+            this.Controls.Add(this.lblNum);
+            this.Controls.Add(this.cmbPrecio);
             this.Controls.Add(this.btnImagenes);
             this.Controls.Add(this.lblBusqueda);
             this.Controls.Add(this.txbBusqueda);
@@ -375,6 +403,8 @@
         private System.Windows.Forms.TextBox txbBusqueda;
         private System.Windows.Forms.Label lblBusqueda;
         private System.Windows.Forms.Button btnImagenes;
+        private System.Windows.Forms.ComboBox cmbPrecio;
+        private System.Windows.Forms.Label lblNum;
     }
 }
 

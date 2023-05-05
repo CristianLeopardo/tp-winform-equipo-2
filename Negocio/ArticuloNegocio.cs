@@ -29,11 +29,6 @@ namespace Negocio
                     obj.Nombre = (string)datos.Lector["Nombre"];
                     obj.Descripcion = (string)datos.Lector["Descripcion"];
                     obj.Precio = (decimal)datos.Lector["Precio"];
-                    /*if (!(datos.Lector["ImagenUrl"] is DBNull))
-                        obj.Imagen2 = (string)datos.Lector["ImagenUrl"];
-                    else
-                        obj.Imagen2 = "";
-                    */
 
                     obj.marca = new Marca();
                     obj.marca.Id = (int)datos.Lector["ID"];
@@ -42,9 +37,6 @@ namespace Negocio
                     obj.categoria = new Categoria();
                     obj.categoria.Id = (int)datos.Lector["ID"];
                     obj.categoria.Descripcion = (string)datos.Lector["Categoria"];
-
-                   // obj.imagen = new Imagen();
-                    //obj.imagen.URLImagen = (string)datos.Lector["ImagenUrl"];
 
                     lista.Add(obj);
                 }
@@ -62,14 +54,14 @@ namespace Negocio
         }
         
 
-        public List<Articulos> filtrado(string seleccion, string filtro)
+        public List<Articulos> filtrado(string seleccion, string filtro, string criterio)
         {
             List<Articulos> lista = new List<Articulos> ();
             Conexion datos = new Conexion();
 
             try
             {
-                string consulta = "SELECT a.id, a.Codigo, a.Nombre, a.Descripcion, a.Precio, m.Id , m.Descripcion as Marca, c.Id, c.Descripcion as Categoria, i.ImagenUrl \r\nfrom ARTICULOS a INNER JOIN MARCAS m on a.IdMarca=m.Id INNER JOIN CATEGORIAS c on a.IdCategoria=c.Id inner join IMAGENES I on I.IdArticulo = a.Id where ";
+                string consulta = "SELECT a.id, a.Codigo, a.Nombre, a.Descripcion, a.Precio, m.Id , m.Descripcion as Marca, c.Id, c.Descripcion as Categoria from ARTICULOS a INNER JOIN MARCAS m on a.IdMarca=m.Id INNER JOIN CATEGORIAS c on a.IdCategoria=c.Id where ";
                 switch (seleccion)
                 {
                     case "Nombre":
@@ -81,6 +73,27 @@ namespace Negocio
                     case "Categoria":
                         consulta += "c.Descripcion like '%" + filtro + "%' ";
                         break;
+                    case "Codigo":
+                        consulta += "a.Codigo like '%" + filtro + "%' ";
+                        break;
+                    case "Descripcion":
+                        consulta += "a.Descripcion like '%" + filtro + "%' ";
+                        break;
+                    case "Precio":
+                        if  (criterio == "Igual a")
+                        {
+                            consulta += "a.Precio =" + filtro;
+                        }
+                        else if (criterio == "Mayor a")
+                        {
+                            consulta += "a.Precio >" + filtro;
+                        }
+                        else
+                        {
+                            consulta += "a.Precio <" + filtro;
+                        }
+                        break;
+
                 }
                 datos.SetearConsulta(consulta);
                 datos.Ejecutarconsulta();
@@ -101,13 +114,12 @@ namespace Negocio
                     obj.categoria = new Categoria();
                     obj.categoria.Id = (int)datos.Lector["ID"];
                     obj.categoria.Descripcion = (string)datos.Lector["Categoria"];
-
-                    //obj.imagen = new Imagen();
+                    /*
                     if (!(datos.Lector["ImagenUrl"] is DBNull))
                         obj.Imagen2 = (string)datos.Lector["ImagenUrl"];
                     else
                         obj.Imagen2 = "";
-
+                    */
                     lista.Add(obj);
                 }
 
