@@ -172,8 +172,9 @@
             this.btnDetalle.Name = "btnDetalle";
             this.btnDetalle.Size = new System.Drawing.Size(134, 29);
             this.btnDetalle.TabIndex = 5;
-            this.btnDetalle.Text = "Detalle";
+            this.btnDetalle.Text = "Mostrar Detalle";
             this.btnDetalle.UseVisualStyleBackColor = false;
+            this.btnDetalle.Click += new System.EventHandler(this.btnDetalle_Click);
             // 
             // btnMarcas
             // 

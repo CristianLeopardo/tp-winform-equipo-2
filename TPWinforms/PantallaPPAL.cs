@@ -28,6 +28,8 @@ namespace TPWinforms
 
         public List<Imagen> ImagenFiltrada;
 
+        private bool press = false;
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
            frmArticulos iniciar = new frmArticulos();
@@ -74,7 +76,15 @@ namespace TPWinforms
             ArticuloNegocio negocio = new ArticuloNegocio();
             ListaArticulos = negocio.Listar();
             dgvArticulos.DataSource = ListaArticulos;
-            ocultarColumnas();
+            if  (press == false)
+            {
+                ocultarColumnas();
+            }
+            else
+            {
+                ocultarColumnasdetalle();
+            }
+            
         }
 
         private void btnCategorias_Click(object sender, EventArgs e)
@@ -114,14 +124,26 @@ namespace TPWinforms
             }
         }
 
-
-
-
         private void ocultarColumnas()
         {
             dgvArticulos.Columns["Imagen2"].Visible = false;
             dgvArticulos.Columns["Id"].Visible = false;
+            dgvArticulos.Columns["descripcion"].Visible = false;
+            dgvArticulos.Columns["Marca"].Visible = false;
+            dgvArticulos.Columns["categoria"].Visible = false;
             dgvArticulos.Columns["idImagen"].Visible = false;
+        }
+
+
+        private void ocultarColumnasdetalle()
+        {
+            dgvArticulos.Columns["Imagen2"].Visible = false;
+            dgvArticulos.Columns["Id"].Visible = false;
+            dgvArticulos.Columns["idImagen"].Visible = false;
+            dgvArticulos.Columns["descripcion"].Visible = true;
+            dgvArticulos.Columns["Marca"].Visible = true;
+            dgvArticulos.Columns["categoria"].Visible = true;
+
         }
 
         private bool validarSeleccion()
@@ -241,6 +263,22 @@ namespace TPWinforms
             {
                 cmbPrecio.Visible = false;
                 lblNum.Visible = false;
+            }
+        }
+
+        private void btnDetalle_Click(object sender, EventArgs e)
+        {
+            if  (press==false) 
+            {
+                btnDetalle.Text = "Ocultar detalle";
+                press = true;
+                cargarInfo();
+            }
+            else
+            {
+                btnDetalle.Text = "Mostrar detalle";
+                press = false;
+                cargarInfo();
             }
         }
     }
