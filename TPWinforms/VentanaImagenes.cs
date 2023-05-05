@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -17,6 +19,9 @@ namespace TPWinforms
     {
         private Imagen img = null;
         public List<Imagen> ListaImagenes;
+        private OpenFileDialog archivo = null;
+        public List <Imagen> ImagenSeleccionada;
+
         public frmImagenes()
         {
             InitializeComponent();
@@ -93,7 +98,11 @@ namespace TPWinforms
                     imagen.Modificar(seleccionado);
                     MessageBox.Show("Modificado exitosamente...");
                 }
-                
+                if (archivo !=  null) 
+                {
+                    //if (archivo != null && !(tbxUrl.Text.ToUpper().Contains("HTTP")))
+                        File.Copy(archivo.FileName, ConfigurationManager.AppSettings["Imagenes"] + archivo.SafeFileName );
+                }
 
                 Close();
 
@@ -138,6 +147,41 @@ namespace TPWinforms
         private void cmbArticulos_SelectionChangeCommitted(object sender, EventArgs e)
         {
               cargarInfo();
+        }
+
+        private void btnLocal_Click(object sender, EventArgs e)
+        {
+            archivo = new OpenFileDialog();
+            archivo.Filter = "jpg|*.jpg;|png|*.png";
+            if (archivo.ShowDialog() == DialogResult.OK)
+            {
+                tbxUrl.Text = archivo.FileName;
+                cargarImagen(archivo.FileName);
+                
+            }
+        }
+
+        private void cargarImagen(string filename)
+        {
+            try
+            {
+                ptbImagen.Load(filename);
+            }
+            catch (Exception)
+            {
+                ptbImagen.Load("https://librerialadorita.com/uploads/product_default.jpg");
+            }
+        }
+
+        private void dgvImagenes_SelectionChanged(object sender, EventArgs e)
+        {
+            if  (dgvImagenes.CurrentRow != null) 
+            {
+                Imagen ImagenSeleccionada = (Imagen)dgvImagenes.CurrentRow.DataBoundItem;
+                cargarImagen(ImagenSeleccionada.URLImagen);
+
+            }
+            
         }
     }
 }

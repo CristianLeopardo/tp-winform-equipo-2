@@ -49,7 +49,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(17, 169);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(117, 33);
-            this.btnCancelar.TabIndex = 13;
+            this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -61,7 +61,7 @@
             this.btnAceptar.Location = new System.Drawing.Point(182, 169);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(117, 33);
-            this.btnAceptar.TabIndex = 12;
+            this.btnAceptar.TabIndex = 3;
             this.btnAceptar.Text = "Agregar";
             this.btnAceptar.UseVisualStyleBackColor = false;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
@@ -72,7 +72,7 @@
             this.tbxNombre.Location = new System.Drawing.Point(140, 132);
             this.tbxNombre.Name = "tbxNombre";
             this.tbxNombre.Size = new System.Drawing.Size(160, 20);
-            this.tbxNombre.TabIndex = 11;
+            this.tbxNombre.TabIndex = 2;
             // 
             // lblNombre
             // 
@@ -101,7 +101,7 @@
             this.grbSelec.Location = new System.Drawing.Point(17, 18);
             this.grbSelec.Name = "grbSelec";
             this.grbSelec.Size = new System.Drawing.Size(283, 68);
-            this.grbSelec.TabIndex = 8;
+            this.grbSelec.TabIndex = 0;
             this.grbSelec.TabStop = false;
             this.grbSelec.Text = "Elija una opción";
             // 
@@ -153,7 +153,7 @@
             this.cmbCategorias.Location = new System.Drawing.Point(140, 97);
             this.cmbCategorias.Name = "cmbCategorias";
             this.cmbCategorias.Size = new System.Drawing.Size(160, 21);
-            this.cmbCategorias.TabIndex = 7;
+            this.cmbCategorias.TabIndex = 1;
             this.cmbCategorias.Visible = false;
             // 
             // frmCategorias

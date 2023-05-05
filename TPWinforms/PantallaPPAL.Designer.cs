@@ -72,7 +72,7 @@
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvArticulos.Size = new System.Drawing.Size(530, 297);
-            this.dgvArticulos.TabIndex = 0;
+            this.dgvArticulos.TabIndex = 14;
             this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
             // tbxBuscar
@@ -81,7 +81,7 @@
             this.tbxBuscar.Location = new System.Drawing.Point(11, 137);
             this.tbxBuscar.Name = "tbxBuscar";
             this.tbxBuscar.Size = new System.Drawing.Size(134, 20);
-            this.tbxBuscar.TabIndex = 1;
+            this.tbxBuscar.TabIndex = 2;
             // 
             // lblInfo1
             // 
@@ -109,7 +109,7 @@
             this.btnFiltrar.Location = new System.Drawing.Point(152, 137);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(66, 21);
-            this.btnFiltrar.TabIndex = 6;
+            this.btnFiltrar.TabIndex = 3;
             this.btnFiltrar.Text = "Filtrar";
             this.btnFiltrar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.btnFiltrar.UseVisualStyleBackColor = false;
@@ -124,7 +124,7 @@
             this.cmbFiltrar.Location = new System.Drawing.Point(11, 87);
             this.cmbFiltrar.Name = "cmbFiltrar";
             this.cmbFiltrar.Size = new System.Drawing.Size(133, 21);
-            this.cmbFiltrar.TabIndex = 7;
+            this.cmbFiltrar.TabIndex = 1;
             // 
             // btnModificar
             // 
@@ -133,7 +133,7 @@
             this.btnModificar.Location = new System.Drawing.Point(12, 234);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(133, 29);
-            this.btnModificar.TabIndex = 8;
+            this.btnModificar.TabIndex = 6;
             this.btnModificar.Text = "Modificar articulo";
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
@@ -145,7 +145,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(12, 269);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(133, 29);
-            this.btnEliminar.TabIndex = 9;
+            this.btnEliminar.TabIndex = 7;
             this.btnEliminar.Text = "Eliminar articulo";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -157,7 +157,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(12, 199);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(133, 29);
-            this.btnAgregar.TabIndex = 10;
+            this.btnAgregar.TabIndex = 5;
             this.btnAgregar.Text = "Agregar articulo";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -169,7 +169,7 @@
             this.btnDetalle.Location = new System.Drawing.Point(12, 164);
             this.btnDetalle.Name = "btnDetalle";
             this.btnDetalle.Size = new System.Drawing.Size(133, 29);
-            this.btnDetalle.TabIndex = 11;
+            this.btnDetalle.TabIndex = 4;
             this.btnDetalle.Text = "Detalle";
             this.btnDetalle.UseVisualStyleBackColor = false;
             // 
@@ -179,7 +179,7 @@
             this.btnMarcas.Location = new System.Drawing.Point(12, 304);
             this.btnMarcas.Name = "btnMarcas";
             this.btnMarcas.Size = new System.Drawing.Size(133, 29);
-            this.btnMarcas.TabIndex = 12;
+            this.btnMarcas.TabIndex = 8;
             this.btnMarcas.Text = "Administrar Marcas";
             this.btnMarcas.UseVisualStyleBackColor = false;
             this.btnMarcas.Click += new System.EventHandler(this.btnMarcas_Click);
@@ -190,7 +190,7 @@
             this.btnCategorias.Location = new System.Drawing.Point(12, 339);
             this.btnCategorias.Name = "btnCategorias";
             this.btnCategorias.Size = new System.Drawing.Size(133, 29);
-            this.btnCategorias.TabIndex = 13;
+            this.btnCategorias.TabIndex = 9;
             this.btnCategorias.Text = "Administrar Categorias";
             this.btnCategorias.UseVisualStyleBackColor = false;
             this.btnCategorias.Click += new System.EventHandler(this.btnCategorias_Click);
@@ -213,7 +213,7 @@
             this.btnSiguiente.Location = new System.Drawing.Point(925, 338);
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.Size = new System.Drawing.Size(73, 29);
-            this.btnSiguiente.TabIndex = 16;
+            this.btnSiguiente.TabIndex = 11;
             this.btnSiguiente.Text = "Siguiente";
             this.btnSiguiente.UseVisualStyleBackColor = false;
             // 
@@ -225,7 +225,7 @@
             this.btnAnterior.Location = new System.Drawing.Point(771, 339);
             this.btnAnterior.Name = "btnAnterior";
             this.btnAnterior.Size = new System.Drawing.Size(71, 28);
-            this.btnAnterior.TabIndex = 17;
+            this.btnAnterior.TabIndex = 12;
             this.btnAnterior.Text = "Anterior";
             this.btnAnterior.UseVisualStyleBackColor = false;
             // 
@@ -238,7 +238,7 @@
             this.btnSalir.Location = new System.Drawing.Point(923, 400);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 29);
-            this.btnSalir.TabIndex = 18;
+            this.btnSalir.TabIndex = 13;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -283,7 +283,7 @@
             this.txbBusqueda.Location = new System.Drawing.Point(328, 61);
             this.txbBusqueda.Name = "txbBusqueda";
             this.txbBusqueda.Size = new System.Drawing.Size(209, 20);
-            this.txbBusqueda.TabIndex = 21;
+            this.txbBusqueda.TabIndex = 0;
             this.txbBusqueda.TextChanged += new System.EventHandler(this.txbBusqueda_TextChanged);
             // 
             // lblBusqueda
@@ -301,7 +301,7 @@
             this.btnImagenes.Location = new System.Drawing.Point(12, 374);
             this.btnImagenes.Name = "btnImagenes";
             this.btnImagenes.Size = new System.Drawing.Size(133, 29);
-            this.btnImagenes.TabIndex = 23;
+            this.btnImagenes.TabIndex = 10;
             this.btnImagenes.Text = "Administrar Imagenes";
             this.btnImagenes.UseVisualStyleBackColor = false;
             this.btnImagenes.Click += new System.EventHandler(this.btnImagenes_Click);
