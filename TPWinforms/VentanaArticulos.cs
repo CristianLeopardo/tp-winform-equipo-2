@@ -25,7 +25,7 @@ namespace TPWinforms
 
             InitializeComponent();
             Text = "Articulo Nuevo";
-           
+
         }
 
         public frmArticulos(Articulos Articulo)
@@ -58,11 +58,8 @@ namespace TPWinforms
                     txbDesc.Text = articulo.Descripcion;
                     cmbMarca.SelectedValue = articulo.marca.Id;
                     cmbCategoria.SelectedValue = articulo.categoria.Id;
-                    //txbImagen.Text = articulo.Imagen2;
                     txtPrecio.Text = articulo.Precio.ToString();
-                    
-
-            }
+                }
             }
             catch (Exception ex)
             {
@@ -76,45 +73,92 @@ namespace TPWinforms
         }
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-           ArticuloNegocio articuloNeg =  new ArticuloNegocio();
-           try
-           {
-               if (articulo == null)
-                   articulo = new Articulos();
-           
-
-               articulo.Codigo = txbCodigo.Text;
-               articulo.Nombre = txbNombre.Text;
-               articulo.Descripcion = txbDesc.Text;
-               articulo.marca = (Marca)cmbMarca.SelectedItem;
-               articulo.categoria = (Categoria)cmbCategoria.SelectedItem;
-               //articulo.imagen.URLImagen = txbImagen.Text;
-               articulo.Precio = decimal.Parse(txtPrecio.Text);
-
-               if(articulo.id != 0)
-               {
-                   articuloNeg.modificar(articulo);
-                   MessageBox.Show("Modificado exitosamente...");
-               }
-               else
-               {
-                   articuloNeg.Agregar(articulo);
-                   MessageBox.Show("Agregado exitosamente...");
-               }
+            ArticuloNegocio articuloNeg = new ArticuloNegocio();
+            try
+            {
+                if (validar())
+                    return;
+                if (articulo == null)
+                    articulo = new Articulos();
 
 
-               Close();
+                articulo.Codigo = txbCodigo.Text;
+                articulo.Nombre = txbNombre.Text;
+                articulo.Descripcion = txbDesc.Text;
+                articulo.marca = (Marca)cmbMarca.SelectedItem;
+                articulo.categoria = (Categoria)cmbCategoria.SelectedItem;
+                articulo.Precio = decimal.Parse(txtPrecio.Text);
 
+                if (articulo.id != 0)
+                {
+                    articuloNeg.modificar(articulo);
+                    MessageBox.Show("Modificado exitosamente...");
+                }
+                else
+                {
+                    articuloNeg.Agregar(articulo);
+                    MessageBox.Show("Agregado exitosamente...");
+                }
 
-           }
-           catch (Exception ex)
-           {
-
-               MessageBox.Show(ex.ToString());
-           }
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
 
         }
+        private bool validar()
+        {
+            if (string.IsNullOrEmpty(txbCodigo.Text))
+            {
+                MessageBox.Show("Debes ingresar un código de artículo..");
+                return true;
+            }
+            if (string.IsNullOrEmpty(txbNombre.Text))
+            {
+                MessageBox.Show("Debes ingresar un nombre de artículo..");
+                return true;
+            }
+            if (string.IsNullOrEmpty(txtPrecio.Text))
+            {
+                MessageBox.Show("Debes ingresar un precio de artículo..");
+                return true;
+            }
+            if (!(soloNumeros(txtPrecio.Text)))
+            {
+                MessageBox.Show("Ingrese solo numeros para el campo Precio");
+                return true;
+            }
+            if (string.IsNullOrEmpty(txbDesc.Text))
+            {
+                DialogResult respuesta = MessageBox.Show("Estas ingresando un artículo sin descripción,¿De verdad querés ingresarlo?", "Descripcion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (respuesta == DialogResult.Yes)
+                {
+                    MessageBox.Show("Ingresado exitosamente...");
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
 
+        private bool soloNumeros(string cadena)
+        {
+            foreach (char caracter in cadena)
+            {
+                if (!(char.IsNumber(caracter)))
+                    return false;
+            }
+            return true;
+        }
+
+        private void lblMDFArt_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

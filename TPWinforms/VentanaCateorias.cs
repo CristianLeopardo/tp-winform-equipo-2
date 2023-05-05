@@ -74,6 +74,16 @@ namespace TPWinforms
             }
         }
 
+        private bool validar()
+        {
+            if  (string.IsNullOrEmpty(tbxNombre.Text))
+            {
+                MessageBox.Show("Debes ingresar un Nombre para la categoría...");
+                return true;
+            }
+            return false;
+        }
+
         public void btnAceptar_Click(object sender, EventArgs e)
         {
             CategoriaNegocio negocio = new CategoriaNegocio();
@@ -82,6 +92,8 @@ namespace TPWinforms
                 categoria = new Categoria();
                 try
                 {
+                    if (validar())
+                        return;
                     categoria.Descripcion = tbxNombre.Text;
                     negocio.AgregarCategoria(categoria);
                     MessageBox.Show("Categoria Agregada");
@@ -105,6 +117,8 @@ namespace TPWinforms
             }
             if (rbtModificar.Checked  == true)
             {
+                if (validar())
+                    return;
                 CategoriaNegocio cate = new CategoriaNegocio();
                 Categoria seleccionado = new Categoria();
                 seleccionado.Id = (int)cmbCategorias.SelectedValue;

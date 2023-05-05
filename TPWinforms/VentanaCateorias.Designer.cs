@@ -170,6 +170,7 @@
             this.Controls.Add(this.grbSelec);
             this.Controls.Add(this.cmbCategorias);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(330, 260);
             this.MinimumSize = new System.Drawing.Size(330, 260);
             this.Name = "frmCategorias";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

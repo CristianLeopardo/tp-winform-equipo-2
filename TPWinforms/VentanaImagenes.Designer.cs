@@ -150,6 +150,7 @@
             // 
             // btnAceptar
             // 
+            this.btnAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAceptar.Location = new System.Drawing.Point(415, 325);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
@@ -160,6 +161,8 @@
             // 
             // dgvImagenes
             // 
+            this.dgvImagenes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvImagenes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvImagenes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvImagenes.Location = new System.Drawing.Point(35, 167);
@@ -173,6 +176,7 @@
             // 
             // btnCerrar
             // 
+            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCerrar.Location = new System.Drawing.Point(69, 325);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(63, 23);
@@ -193,6 +197,9 @@
             // 
             // ptbImagen
             // 
+            this.ptbImagen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ptbImagen.Location = new System.Drawing.Point(415, 16);
             this.ptbImagen.Name = "ptbImagen";
             this.ptbImagen.Size = new System.Drawing.Size(140, 140);

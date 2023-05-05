@@ -80,6 +80,8 @@ namespace TPWinforms
             MarcaNegocio negocio = new MarcaNegocio();
             if  (rbtAgregar.Checked == true) 
             {
+                if (validar())
+                    return;
                 marca = new Marca();
                 try
                 {
@@ -106,6 +108,8 @@ namespace TPWinforms
             }
             if (rbtModificar.Checked == true) 
             {
+                if (validar())
+                    return;
                 MarcaNegocio marca = new MarcaNegocio();
                 Marca seleccionado = new Marca();
                 seleccionado.Id = (int)cmbMarcas.SelectedValue;
@@ -116,6 +120,15 @@ namespace TPWinforms
 
             Close();
 
+        }
+        private bool validar()
+        {
+            if (string.IsNullOrEmpty(tbxNombre.Text))
+            {
+                MessageBox.Show("Debes ingresar un Nombre para la marca...");
+                return true;
+            }
+            return false;
         }
     }
 }
