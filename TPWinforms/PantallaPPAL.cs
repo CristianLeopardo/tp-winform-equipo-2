@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -78,6 +79,8 @@ namespace TPWinforms
             ArticuloNegocio negocio = new ArticuloNegocio();
             ListaArticulos = negocio.Listar();
             dgvArticulos.DataSource = ListaArticulos;
+            dgvArticulos.Columns["Precio"].DefaultCellStyle.FormatProvider = CultureInfo.GetCultureInfo("en-US");
+            dgvArticulos.Columns["Precio"].DefaultCellStyle.Format = "C2";
             if  (press == false)
             {
                 ocultarColumnas();

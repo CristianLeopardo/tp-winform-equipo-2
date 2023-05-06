@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33423.256
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPWinforms", "TPWinforms.csproj", "{F741B9C4-3DD4-4A27-9D22-B39BD3A936B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negocio", "..\Negocio\Negocio.csproj", "{BECEA428-1C40-4B3B-AFB0-E7CD1ED872C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominio", "..\Dominio\Dominio.csproj", "{76B73F01-720F-4983-85D5-ACA6086318F7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F741B9C4-3DD4-4A27-9D22-B39BD3A936B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F741B9C4-3DD4-4A27-9D22-B39BD3A936B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F741B9C4-3DD4-4A27-9D22-B39BD3A936B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F741B9C4-3DD4-4A27-9D22-B39BD3A936B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BECEA428-1C40-4B3B-AFB0-E7CD1ED872C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BECEA428-1C40-4B3B-AFB0-E7CD1ED872C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BECEA428-1C40-4B3B-AFB0-E7CD1ED872C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BECEA428-1C40-4B3B-AFB0-E7CD1ED872C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76B73F01-720F-4983-85D5-ACA6086318F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76B73F01-720F-4983-85D5-ACA6086318F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76B73F01-720F-4983-85D5-ACA6086318F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76B73F01-720F-4983-85D5-ACA6086318F7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {58021C17-C919-447A-8973-B5D8EEAFC91E}
+	EndGlobalSection
+EndGlobal
