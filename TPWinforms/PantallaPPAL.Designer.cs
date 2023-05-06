@@ -201,9 +201,9 @@
             // ptbArticulos
             // 
             this.ptbArticulos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ptbArticulos.Location = new System.Drawing.Point(773, 96);
+            this.ptbArticulos.Location = new System.Drawing.Point(773, 94);
             this.ptbArticulos.Name = "ptbArticulos";
-            this.ptbArticulos.Size = new System.Drawing.Size(225, 196);
+            this.ptbArticulos.Size = new System.Drawing.Size(225, 198);
             this.ptbArticulos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbArticulos.TabIndex = 15;
             this.ptbArticulos.TabStop = false;

@@ -74,11 +74,21 @@ namespace TPWinforms
             {
                 if (rbtAgregar.Checked)
                 {
-                    img = new Imagen();
-                    img.Id = (int)cmbArticulos.SelectedValue;
-                    img.URLImagen = tbxUrl.Text;
-                    imagen.Agregar(img);
-                    MessageBox.Show("Agregado exitosamente...");
+                    if(tbxUrl.Text != "")
+                    {
+                        img = new Imagen();
+                        img.Id = (int)cmbArticulos.SelectedValue;
+                        img.URLImagen = tbxUrl.Text;
+                        imagen.Agregar(img);
+                        MessageBox.Show("Agregado exitosamente...");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ingrese un archivo o una URL");
+                        return;
+                    }
+                    
+
                 }
                 if (rbtEliminar.Checked)
                 {
@@ -92,11 +102,20 @@ namespace TPWinforms
                 }
                 if(rbtModificar.Checked)
                 {
-                    img = new Imagen();
-                    seleccionado = (Imagen)dgvImagenes.CurrentRow.DataBoundItem;
-                    seleccionado.URLImagen = tbxUrl.Text;
-                    imagen.Modificar(seleccionado);
-                    MessageBox.Show("Modificado exitosamente...");
+                    if(tbxUrl.Text != "")
+                    {
+                        img = new Imagen();
+                        seleccionado = (Imagen)dgvImagenes.CurrentRow.DataBoundItem;
+                        seleccionado.URLImagen = tbxUrl.Text;
+                        imagen.Modificar(seleccionado);
+                        MessageBox.Show("Modificado exitosamente...");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ingrese un archivo o una URL");
+                        return;
+                    }
+
                 }
                 if (archivo !=  null) 
                 {
@@ -182,6 +201,11 @@ namespace TPWinforms
 
             }
             
+        }
+
+        private void tbxUrl_TextChanged(object sender, EventArgs e)
+        {
+            cargarImagen(tbxUrl.Text.ToString());
         }
     }
 }

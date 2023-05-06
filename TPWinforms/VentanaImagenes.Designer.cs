@@ -138,6 +138,7 @@
             this.tbxUrl.Name = "tbxUrl";
             this.tbxUrl.Size = new System.Drawing.Size(224, 20);
             this.tbxUrl.TabIndex = 3;
+            this.tbxUrl.TextChanged += new System.EventHandler(this.tbxUrl_TextChanged);
             // 
             // lblUrl
             // 
