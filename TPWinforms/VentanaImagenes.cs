@@ -78,7 +78,17 @@ namespace TPWinforms
                     {
                         img = new Imagen();
                         img.Id = (int)cmbArticulos.SelectedValue;
-                        img.URLImagen = tbxUrl.Text;
+                        if (archivo != null)
+                        {
+                            if (archivo != null && !(tbxUrl.Text.ToUpper().Contains("HTTP")))
+                                File.Copy(archivo.FileName, ConfigurationManager.AppSettings["Imagenes"] + archivo.SafeFileName);
+                            img.URLImagen = ConfigurationManager.AppSettings["Imagenes"] + archivo.SafeFileName;
+
+                        }
+                        else
+                        {
+                            img.URLImagen = tbxUrl.Text;
+                        }
                         imagen.Agregar(img);
                         MessageBox.Show("Agregado exitosamente...");
                     }
@@ -106,7 +116,18 @@ namespace TPWinforms
                     {
                         img = new Imagen();
                         seleccionado = (Imagen)dgvImagenes.CurrentRow.DataBoundItem;
-                        seleccionado.URLImagen = tbxUrl.Text;
+                        if (archivo != null)
+                        {
+                            if (archivo != null && !(tbxUrl.Text.ToUpper().Contains("HTTP")))
+                                File.Copy(archivo.FileName, ConfigurationManager.AppSettings["Imagenes"] + archivo.SafeFileName);
+                                seleccionado.URLImagen = ConfigurationManager.AppSettings["Imagenes"] + archivo.SafeFileName;
+
+                        }
+                        else
+                        {
+                            seleccionado.URLImagen = tbxUrl.Text;
+                        }
+                        
                         imagen.Modificar(seleccionado);
                         MessageBox.Show("Modificado exitosamente...");
                     }
@@ -117,11 +138,7 @@ namespace TPWinforms
                     }
 
                 }
-                if (archivo !=  null) 
-                {
-                    //if (archivo != null && !(tbxUrl.Text.ToUpper().Contains("HTTP")))
-                        File.Copy(archivo.FileName, ConfigurationManager.AppSettings["Imagenes"] + archivo.SafeFileName );
-                }
+                
 
                 Close();
 
@@ -129,7 +146,6 @@ namespace TPWinforms
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.ToString());
             }
         }
