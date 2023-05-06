@@ -45,6 +45,8 @@
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.Silver;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btnCancelar.Location = new System.Drawing.Point(17, 169);
             this.btnCancelar.Name = "btnCancelar";
@@ -57,6 +59,8 @@
             // btnAceptar
             // 
             this.btnAceptar.BackColor = System.Drawing.Color.Silver;
+            this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAceptar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnAceptar.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btnAceptar.Location = new System.Drawing.Point(182, 169);
             this.btnAceptar.Name = "btnAceptar";
@@ -68,7 +72,9 @@
             // 
             // tbxNombre
             // 
-            this.tbxNombre.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.tbxNombre.BackColor = System.Drawing.SystemColors.WindowText;
+            this.tbxNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbxNombre.ForeColor = System.Drawing.SystemColors.Window;
             this.tbxNombre.Location = new System.Drawing.Point(140, 132);
             this.tbxNombre.Name = "tbxNombre";
             this.tbxNombre.Size = new System.Drawing.Size(160, 20);
@@ -77,18 +83,22 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
+            this.lblNombre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblNombre.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
             this.lblNombre.Location = new System.Drawing.Point(14, 135);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(44, 13);
+            this.lblNombre.Size = new System.Drawing.Size(49, 15);
             this.lblNombre.TabIndex = 10;
             this.lblNombre.Text = "Nombre";
             // 
             // lblSeleccion
             // 
             this.lblSeleccion.AutoSize = true;
+            this.lblSeleccion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblSeleccion.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
             this.lblSeleccion.Location = new System.Drawing.Point(14, 100);
             this.lblSeleccion.Name = "lblSeleccion";
-            this.lblSeleccion.Size = new System.Drawing.Size(120, 13);
+            this.lblSeleccion.Size = new System.Drawing.Size(125, 15);
             this.lblSeleccion.TabIndex = 9;
             this.lblSeleccion.Text = "Seleccione la categoría";
             this.lblSeleccion.Visible = false;
@@ -98,6 +108,8 @@
             this.grbSelec.Controls.Add(this.rbtEliminar);
             this.grbSelec.Controls.Add(this.rbtModificar);
             this.grbSelec.Controls.Add(this.rbtAgregar);
+            this.grbSelec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.grbSelec.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.grbSelec.Location = new System.Drawing.Point(17, 18);
             this.grbSelec.Name = "grbSelec";
             this.grbSelec.Size = new System.Drawing.Size(283, 68);
@@ -108,9 +120,11 @@
             // rbtEliminar
             // 
             this.rbtEliminar.AutoSize = true;
+            this.rbtEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rbtEliminar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
             this.rbtEliminar.Location = new System.Drawing.Point(216, 30);
             this.rbtEliminar.Name = "rbtEliminar";
-            this.rbtEliminar.Size = new System.Drawing.Size(61, 17);
+            this.rbtEliminar.Size = new System.Drawing.Size(67, 19);
             this.rbtEliminar.TabIndex = 2;
             this.rbtEliminar.Text = "Eliminar";
             this.rbtEliminar.UseVisualStyleBackColor = true;
@@ -119,9 +133,11 @@
             // rbtModificar
             // 
             this.rbtModificar.AutoSize = true;
+            this.rbtModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rbtModificar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
             this.rbtModificar.Location = new System.Drawing.Point(106, 30);
             this.rbtModificar.Name = "rbtModificar";
-            this.rbtModificar.Size = new System.Drawing.Size(68, 17);
+            this.rbtModificar.Size = new System.Drawing.Size(73, 19);
             this.rbtModificar.TabIndex = 1;
             this.rbtModificar.Text = "Modificar";
             this.rbtModificar.UseVisualStyleBackColor = true;
@@ -131,9 +147,11 @@
             // 
             this.rbtAgregar.AutoSize = true;
             this.rbtAgregar.Checked = true;
+            this.rbtAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rbtAgregar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
             this.rbtAgregar.Location = new System.Drawing.Point(6, 30);
             this.rbtAgregar.Name = "rbtAgregar";
-            this.rbtAgregar.Size = new System.Drawing.Size(62, 17);
+            this.rbtAgregar.Size = new System.Drawing.Size(67, 19);
             this.rbtAgregar.TabIndex = 0;
             this.rbtAgregar.TabStop = true;
             this.rbtAgregar.Text = "Agregar";
@@ -142,8 +160,10 @@
             // 
             // cmbCategorias
             // 
-            this.cmbCategorias.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.cmbCategorias.BackColor = System.Drawing.SystemColors.WindowText;
             this.cmbCategorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCategorias.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.cmbCategorias.ForeColor = System.Drawing.SystemColors.Window;
             this.cmbCategorias.FormattingEnabled = true;
             this.cmbCategorias.Items.AddRange(new object[] {
             "Celulares",
@@ -160,7 +180,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DarkSalmon;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(314, 221);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
