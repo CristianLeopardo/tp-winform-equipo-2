@@ -97,8 +97,18 @@ namespace TPWinforms
                 }
                 else
                 {
-                    articuloNeg.Agregar(articulo);
-                    MessageBox.Show("Agregado exitosamente...");
+                    bool valCod = ValidarCodigo();
+                    if (valCod == false)
+                    {
+                        articuloNeg.Agregar(articulo);
+                        MessageBox.Show("Agregado exitosamente...");
+                    }
+                    else
+                    {
+                        MessageBox.Show("El codigo ya existe en el sistema...");
+                        return;
+                    }
+                    
                 }
                 DialogResult respuesta = MessageBox.Show("¿Quieres agregar o editar imagenes para este artículo?", "Imagenes", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (respuesta == DialogResult.Yes)
@@ -163,6 +173,18 @@ namespace TPWinforms
 
         private void lblMDFArt_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private bool ValidarCodigo()
+        {
+            ArticuloNegocio validarArt = new ArticuloNegocio();
+            int artValidado = validarArt.Validacion(txbCodigo.Text);
+            if(artValidado == 1)
+            {
+                return true;
+            }
+            return false;
 
         }
     }

@@ -236,5 +236,39 @@ namespace Negocio
                 datos.Cerraconexion();
             }
         }
+
+
+        public int Validacion(string articulo)
+        {
+
+            try
+            {
+                string connectionString = "Server=.\\LABO3; database=CATALOGO_P3_DB; integrated security=true";
+                string query = "SELECT COUNT(*) FROM Articulos WHERE codigo = @articulo";
+                int count = 0;
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@articulo", articulo);
+                    connection.Open();
+                    count = (int)command.ExecuteScalar();
+                }
+
+                if (count > 0)
+                {
+                    return 1;
+                }
+             
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            return 0;
+
+
+        }
     }
 }
