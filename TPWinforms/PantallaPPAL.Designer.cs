@@ -219,11 +219,13 @@
             this.btnSiguiente.TabIndex = 12;
             this.btnSiguiente.Text = "Siguiente";
             this.btnSiguiente.UseVisualStyleBackColor = false;
+            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
             // 
             // btnAnterior
             // 
             this.btnAnterior.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAnterior.BackColor = System.Drawing.Color.Silver;
+            this.btnAnterior.Enabled = false;
             this.btnAnterior.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btnAnterior.Location = new System.Drawing.Point(773, 299);
             this.btnAnterior.Name = "btnAnterior";
@@ -231,6 +233,7 @@
             this.btnAnterior.TabIndex = 13;
             this.btnAnterior.Text = "Anterior";
             this.btnAnterior.UseVisualStyleBackColor = false;
+            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
             // 
             // btnSalir
             // 

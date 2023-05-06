@@ -29,6 +29,7 @@ namespace TPWinforms
         public List<Imagen> ImagenFiltrada;
 
         private bool press = false;
+        int posicion = 0;
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -69,6 +70,7 @@ namespace TPWinforms
             cmbPrecio.Items.Add("Igual a");
             cmbPrecio.Items.Add("Mayor a");
             cmbPrecio.Items.Add("Menor a");
+            
         }
 
         private void cargarInfo()
@@ -98,6 +100,7 @@ namespace TPWinforms
             if(dgvArticulos.CurrentRow != null)
             {
                 Articulos Seleccionado = (Articulos)dgvArticulos.CurrentRow.DataBoundItem;
+                posicion = 0;
                 cargarImagen(Seleccionado.id);
             }
             
@@ -105,23 +108,56 @@ namespace TPWinforms
         private void cargarImagen(int imagen)
         {
             ImagenNegocio imagenNegocio = new ImagenNegocio();
-            ListaImagenes = imagenNegocio.listarimagenes();
-
-            System.Collections.IList list = ListaImagenes;
-            for (int i1 = 0; i1 < list.Count; i1++)
-            {
-                if (ListaImagenes[i1].Id == imagen)
-                {
+            ListaImagenes = imagenNegocio.listarimagenes(imagen);
                     try
                     {
-                        ptbArticulos.Load(ListaImagenes[i1].URLImagen);
+                        ptbArticulos.Load(ListaImagenes[posicion].URLImagen);
                     }
                     catch
                     {
                         ptbArticulos.Load("https://librerialadorita.com/uploads/product_default.jpg");
                     }
+           if (ListaImagenes.Count -1 == posicion)
+            {
+                btnSiguiente.Enabled = false;
+            }
+           else
+            {
+                btnSiguiente.Enabled = true;
+            }
+            
+        }
+        private void btnSiguiente_Click(object sender, EventArgs e)
+        {
+            
+            if (dgvArticulos.CurrentRow != null)
+            {
+                posicion++;
+                Articulos Seleccionado = (Articulos)dgvArticulos.CurrentRow.DataBoundItem;
+                cargarImagen(Seleccionado.id);
+                btnAnterior.Enabled = true;
+                
+            }
+        }
+
+        private void btnAnterior_Click(object sender, EventArgs e)
+        {
+            
+            if (dgvArticulos.CurrentRow != null)
+            {
+                posicion--;
+                Articulos Seleccionado = (Articulos)dgvArticulos.CurrentRow.DataBoundItem;
+                cargarImagen(Seleccionado.id);
+                if (posicion <= 0)
+                {
+                    btnAnterior.Enabled = false;
+                }
+                else
+                {
+                    btnAnterior.Enabled = true;
                 }
             }
+            
         }
 
         private void ocultarColumnas()
@@ -281,5 +317,7 @@ namespace TPWinforms
                 cargarInfo();
             }
         }
+
+        
     }
 }
