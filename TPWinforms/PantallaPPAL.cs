@@ -300,6 +300,9 @@ namespace TPWinforms
                 cmbPrecio.Visible = false;
                 lblNum.Visible = false;
             }
+            press = true;
+            btnDetalle.Text = "Ocultar detalle";
+            ocultarColumnasdetalle();
         }
 
         private void btnDetalle_Click(object sender, EventArgs e)

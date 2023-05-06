@@ -11,6 +11,7 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace TPWinforms
 {
@@ -99,7 +100,12 @@ namespace TPWinforms
                     articuloNeg.Agregar(articulo);
                     MessageBox.Show("Agregado exitosamente...");
                 }
-
+                DialogResult respuesta = MessageBox.Show("¿Quieres agregar o editar imagenes para este artículo?", "Imagenes", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (respuesta == DialogResult.Yes)
+                {
+                    frmImagenes nuevo = new frmImagenes();
+                    nuevo.ShowDialog();
+                }
                 Close();
             }
             catch (Exception ex)
