@@ -163,10 +163,17 @@ namespace TPWinforms
 
         private bool soloNumeros(string cadena)
         {
+            int coma = 0;
             foreach (char caracter in cadena)
             {
                 if (!(char.IsNumber(caracter)))
-                    return false;
+                {
+                    if (!(caracter == ',' && coma == 0))
+                    {
+                        coma++;
+                        return false;
+                    }
+                }
             }
             return true;
         }
